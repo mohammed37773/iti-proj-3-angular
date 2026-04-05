@@ -1,0 +1,5 @@
+#card {
+    width: clamp(300px, 60%, 600px);
+    font-size: clamp(2rem, 3vw , 5vw);
+    text-align: center;
+}

@@ -1,1 +1,126 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --mcd: #317bc4;
+    --mcn: #5c9fcf;
+    --mcl: #88b5d6;
+    --background-animation: gradientMove 3s linear infinite;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+div {
+    display: inline-block;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--mcl), var(--mcd));
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: inline-block;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+}
+
+.white {
+    background-color: white;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 10px,
+                rgba(0, 0, 0, 0.7) 0px 0px 5px
+                ;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.15); /* Transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass blur */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.expand {
+    width: 100%;
+    height: 100%;
+}
+
+.colorize {
+    background: linear-gradient(90deg, var(--mcn), var(--mcd));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; 
+}
+
+.verdana{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.animated-background {
+  background: linear-gradient(
+    135deg,
+    var(--mcn),
+    var(--mcd),
+    var(--mcn),
+
+  );  
+  background-size: 400% 400%;
+  animation: var(--background-animation)
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn {
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+      width: fit-content;
+    }
+.btn-primary {
+  background: linear-gradient(135deg,  var(--mcd), var(--mcn));
+  color: white;
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.logo {
+    width: 1em;
+    scale: 1.3;
+    aspect-ratio: 1;
+}
