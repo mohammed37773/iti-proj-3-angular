@@ -23,13 +23,5 @@ export const routes: Routes = [
     {
         path: "doctors/:id",
         loadComponent: () => import("./doctor-details/doctor-details").then(c => c.DoctorDetails)
-    },
-
-
-    {
-        path: "**",
-        loadComponent: () => import("./not-found/not-found").then(c => c.NotFound)
-
     }
-
 ];

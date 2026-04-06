@@ -19,4 +19,11 @@ export const routes: Routes = [
     },
 
 
+    {
+        path: "**",
+        loadComponent: () => import("./components/pages/public/not-found/not-found").then(c => c.NotFound)
+
+    }
+
+
 ];

@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { AuthService } from '../../../../services/auth-service';
+import { IUser } from '../../../../models/iuser';
 
 @Component({
   selector: 'app-log-in',
@@ -11,23 +14,36 @@ import { RouterLink } from "@angular/router";
 })
 export class LogIn implements OnInit {
   fb: FormBuilder = inject(FormBuilder)
+  http = inject(HttpClient);
+  auth = inject(AuthService);
+  router = inject(Router)
   form!: FormGroup;
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(4)]]
+      email: ["admin@health.com", [Validators.required, Validators.email]],
+      password: ["admin123", [Validators.required, Validators.minLength(4)]]
     })
   }
 
   onSubmit(): void {
-    if(this.form.valid){
-
-    }
-    else {
-      this.form.markAllAsTouched()
-    }
+    console.log("submitting");
+    
+    this.auth.logIn(this.form.get("email")?.value!, this.form.get("password")?.value!).subscribe({
+        next: (res: IUser[]) => {
+          if (res && res.length > 0) {
+            const user = res[0];
+            this.auth.Authorize(user);
+            this.router.navigateByUrl(`/${user.role}`)
+          } else {
+            console.log('No user found');
+          }
+        },
+        error: (err) => {
+          console.log('Login failed:', err);
+        }
+    })
   }
-
-
 }
+
+

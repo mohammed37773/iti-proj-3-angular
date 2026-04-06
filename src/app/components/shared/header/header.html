@@ -4,6 +4,15 @@
     </h3>
     
     <nav class="row center">
-        <a routerLink="/home">Home</a>
+        @let role = this.role | async;
+        @if (role == "admin") {
+            @for (page of ['appointments', 'patients', 'doctors', 'dashboard']; track $index) {
+                <a routerLink="{{role}}/{{page}}">{{page | titlecase}}</a>
+            }
+        }
+        @else if (role == "doctor") {
+
+        }
+        <button class="colorize" (click)="logOut()">Log Out</button>
     </nav>
 </header>

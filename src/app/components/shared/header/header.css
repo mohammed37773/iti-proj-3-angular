@@ -1,5 +1,5 @@
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
 }
@@ -24,4 +24,11 @@ a {
 
 a:hover {
     background-color: rgb(230, 230, 230);
+}
+
+button {
+    border: none;
+    padding: 5px;
+    height: 100%;
+    cursor: pointer;
 }
