@@ -1,18 +1,44 @@
-<header class="row white shadow">
-    <h3 class="colorize">HealthPro
-        <img class="logo" src="/favicon.ico" alt="logo">
-    </h3>
+<header class="header-container white shadow">
+    <div class="header-left colorize">
+        <h3>HealthPro
+            <img class="logo" src="/favicon.ico" alt="logo">
+        </h3>
+    </div>
     
-    <nav class="row center">
+    <button class="hamburger" (click)="toggleNav()" [attr.aria-expanded]="isNavOpen()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <nav class="nav" [class.open]="isNavOpen()">
         @let role = this.role | async;
-        @if (role == "admin") {
-            @for (page of ['appointments', 'patients', 'doctors', 'dashboard']; track $index) {
-                <a routerLink="{{role}}/{{page}}">{{page | titlecase}}</a>
-            }
+        @if (role) {
+            <div class="nav-links">
+                @switch (role) {
+                    @case ('admin') {
+                        @for (page of ['dashboard', 'appointments', 'patients', 'doctors']; track $index) {
+                            <a routerLink="/{{role}}/{{page}}" routerLinkActive="active" (click)="toggleNav()">{{page | titlecase}}</a>
+                        }
+                    }
+                    @case ('doctor') {
+                        @for (page of ['dashboard', 'appointments', 'prescriptions', 'history', 'profile']; track $index) {
+                            <a routerLink="/{{role}}/{{page}}" routerLinkActive="active" (click)="toggleNav()">{{page | titlecase}}</a>
+                        }
+                    }
+                    @case ('patient') {
+                        @for (page of ['dashboard', 'appointments', 'records', 'profile']; track $index) {
+                            <a routerLink="/{{role}}/{{page}}" routerLinkActive="active" (click)="toggleNav()">{{page | titlecase}}</a>
+                        }
+                    }
+                }
+            </div>
+            <button class="logout-btn colorize" (click)="logOut()">Log Out</button>
+        } @else {
+            <div class="nav-links">
+                <a routerLink="/login">Login</a>
+                <a routerLink="/register">Register</a>
+            </div>
         }
-        @else if (role == "doctor") {
-
-        }
-        <button class="colorize" (click)="logOut()">Log Out</button>
     </nav>
 </header>
