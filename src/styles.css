@@ -9,6 +9,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    accent-color: var(--mcd);
 }
 
 div {
@@ -30,15 +31,16 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
-.col {
+.colm {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.row {
+.rowm {
     display: flex;
 }
 

@@ -1,6 +1,8 @@
 form {
     border-radius: 10px;
     padding: 20px;
+    gap: 10px;
+
 }
 
 form h1 {

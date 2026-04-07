@@ -21,14 +21,12 @@ export class LogIn implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: ["admin@health.com", [Validators.required, Validators.email]],
-      password: ["admin123", [Validators.required, Validators.minLength(4)]]
+      email: ["ahmed@doctor.com", [Validators.required, Validators.email]],
+      password: ["doctor123", [Validators.required, Validators.minLength(4)]]
     })
   }
 
-  onSubmit(): void {
-    console.log("submitting");
-    
+  onSubmit(): void {   
     this.auth.logIn(this.form.get("email")?.value!, this.form.get("password")?.value!).subscribe({
         next: (res: IUser[]) => {
           if (res && res.length > 0) {

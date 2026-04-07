@@ -1,8 +1,9 @@
 <div class="expand center" style="height: 100vh;"> 
     <!-- {{form.errors | json}} -->
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="white col">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="white colm">
         <h1 class="colorize verdana"> Log In </h1>
         <div class="form-grid">
+                         
             <div class="form-group">
                 <label for="email">Email</label>
                 <input id="email" formControlName="email" class="form-input" type="email" />

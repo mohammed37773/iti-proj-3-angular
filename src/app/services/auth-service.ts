@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -16,6 +15,11 @@ export class AuthService {
 
   logIn(email: string, password: string): Observable<IUser[]> {
     return this.http.get<IUser[]>(environment.AuthUrl + `?email=${email}&password=${password}`)
+  }
+
+  checkEmailExists(email: string): Observable<IUser[]> {
+    
+    return this.http.get<IUser[]>(environment.AuthUrl + `?email=${email}`);
   }
   
   Authorize(user: IUser) {
