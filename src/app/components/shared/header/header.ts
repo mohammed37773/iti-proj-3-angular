@@ -19,11 +19,11 @@ export class Header {
   isNavOpen = signal(false);
 
   toggleNav() {
-    this.isNavOpen.update(open => !open);
+    this.isNavOpen.update(state => !state);
   }
 
   logOut(){
     this.auth.logOut();
-    this.isNavOpen.set(false); // Close menu on logout
+    this.isNavOpen.set(false);
   }
 }

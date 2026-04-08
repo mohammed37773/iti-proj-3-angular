@@ -1,4 +1,4 @@
-<div class="register-container">
+<div class="expand center" style="min-height: 100vh;"> 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form white colm">
         <h1 class="colorize verdana mb-4">Sign up</h1>
         
@@ -65,7 +65,7 @@
                 }
             </div>
 
-        <button type="submit" [disabled]="form.invalid || isLoading" class="btn btn-primary w-100">
+        <button type="submit" [disabled]="form.invalid || this.isLoading" class="btn btn-primary w-100">
             @if (isLoading) {
                 <span>Creating Account...</span>
                 <div class="spinner-border spinner-border-sm ms-2" role="status"></div>
@@ -74,6 +74,6 @@
             }
         </button>
 
-        <p class="text-center mt-3">Already have an account? <a routerLink="/login" class="colorize">Log In</a></p>
+        <p>Already have account <a routerLink="/login" class="colorize">Log In</a></p>
     </form>
 </div>

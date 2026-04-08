@@ -32,7 +32,7 @@ export class LogIn implements OnInit {
           if (res && res.length > 0) {
             const user = res[0];
             this.auth.Authorize(user);
-            this.router.navigateByUrl(`/${user.role}`)
+            this.router.navigateByUrl("/")
           } else {
             console.log('No user found');
           }

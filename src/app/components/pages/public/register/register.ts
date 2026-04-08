@@ -2,14 +2,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl } from '@angular/forms';
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { AuthService } from '../../../../services/auth-service';
 import { IUser, Role } from '../../../../models/iuser';
 import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
@@ -66,14 +66,16 @@ export class Register implements OnInit {
         if (users.length > 0) {
           this.emailExistsError = 'Email already exists. Please choose another.';
           this.isLoading = false;
+          console.log(this.isLoading);
           return;
         }
 
         // Register new user
-        this.http.post(environment.AuthUrl, userData).subscribe({
+        this.http.post(environment.UserUrl, userData).subscribe({
           next: () => {
+            
             this.auth.Authorize(userData);
-            this.router.navigateByUrl(`/${userData.role}`)
+            this.router.navigateByUrl("/")
           },
           error: (err) => {
             console.error('Registration failed:', err);
