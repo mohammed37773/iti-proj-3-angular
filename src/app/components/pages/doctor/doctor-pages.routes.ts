@@ -2,9 +2,13 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: "doctor",
-        redirectTo: "profile",
+        path: "",
         children: [
+            {
+                path: "",
+                redirectTo: "dashboard",
+                pathMatch: "full"
+            },
             {
 
                 path: "appointment",

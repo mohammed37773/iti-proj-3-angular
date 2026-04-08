@@ -1,6 +1,36 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { IUser } from '../models/iuser';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {}
+export class AuthService {
+  http = inject(HttpClient);
+  router = inject(Router)
+  currentUser = new BehaviorSubject<IUser | null>(null);
+
+  logIn(email: string, password: string): Observable<IUser[]> {
+    return this.http.get<IUser[]>(environment.AuthUrl + `?email=${email}&password=${password}`)
+  }
+
+  checkEmailExists(email: string): Observable<IUser[]> {
+    
+    return this.http.get<IUser[]>(environment.AuthUrl + `?email=${email}`);
+  }
+  
+  Authorize(user: IUser) {
+    localStorage.setItem("user", JSON.stringify(user));
+    this.currentUser.next(user);
+  }
+
+  logOut(){
+    localStorage.removeItem("currentUser")
+    this.currentUser.next(null)
+    this.router.navigateByUrl("/login")
+  }
+
+}

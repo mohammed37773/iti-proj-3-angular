@@ -20,11 +20,36 @@
       "experience": 10,
       "bio": "Experienced cardiologist with 10 years in heart care.",
       "availableSlots": [
-        { "day": "Sunday", "startTime": "09:00", "endTime": "09:30", "isBooked": false },
-        { "day": "Sunday", "startTime": "09:30", "endTime": "10:00", "isBooked": false },
-        { "day": "Sunday", "startTime": "10:00", "endTime": "10:30", "isBooked": true },
-        { "day": "Tuesday", "startTime": "14:00", "endTime": "14:30", "isBooked": false },
-        { "day": "Tuesday", "startTime": "14:30", "endTime": "15:00", "isBooked": false }
+        {
+          "day": "Sunday",
+          "startTime": "09:00",
+          "endTime": "09:30",
+          "isBooked": false
+        },
+        {
+          "day": "Sunday",
+          "startTime": "09:30",
+          "endTime": "10:00",
+          "isBooked": false
+        },
+        {
+          "day": "Sunday",
+          "startTime": "10:00",
+          "endTime": "10:30",
+          "isBooked": true
+        },
+        {
+          "day": "Tuesday",
+          "startTime": "14:00",
+          "endTime": "14:30",
+          "isBooked": false
+        },
+        {
+          "day": "Tuesday",
+          "startTime": "14:30",
+          "endTime": "15:00",
+          "isBooked": false
+        }
       ],
       "rating": 4.8,
       "reviewCount": 120,
@@ -41,9 +66,24 @@
       "experience": 7,
       "bio": "Skin care specialist focused on treating acne, eczema, and cosmetic dermatology.",
       "availableSlots": [
-        { "day": "Monday", "startTime": "10:00", "endTime": "10:30", "isBooked": false },
-        { "day": "Monday", "startTime": "10:30", "endTime": "11:00", "isBooked": false },
-        { "day": "Wednesday", "startTime": "13:00", "endTime": "13:30", "isBooked": false }
+        {
+          "day": "Monday",
+          "startTime": "10:00",
+          "endTime": "10:30",
+          "isBooked": false
+        },
+        {
+          "day": "Monday",
+          "startTime": "10:30",
+          "endTime": "11:00",
+          "isBooked": false
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "13:00",
+          "endTime": "13:30",
+          "isBooked": false
+        }
       ],
       "rating": 4.5,
       "reviewCount": 85,
@@ -66,6 +106,15 @@
       "phone": "01044444444",
       "role": "patient",
       "createdAt": "2026-03-10"
+    },
+    {
+      "id": "DZsmU7GHXkE",
+      "name": "Ahmed",
+      "email": "ahmed@fake.com",
+      "password": "123456",
+      "phone": "01234567890",
+      "role": "doctor",
+      "createdAt": "2026-04-07T21:38:29.548Z"
     }
   ],
   "appointments": [
@@ -119,5 +168,6 @@
       "notes": "Patient advised to reduce salt intake and exercise regularly.",
       "date": "2026-04-10"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
