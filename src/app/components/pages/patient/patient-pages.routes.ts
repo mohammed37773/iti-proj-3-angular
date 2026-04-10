@@ -11,7 +11,7 @@ export const routes: Routes = [
             },
             {
 
-                path: "appointment",
+                path: "appointments",
                 loadComponent: () => import("./patient-appointments/patient-appointments").then(c => c.PatientAppointments)
 
             },
