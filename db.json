@@ -142,6 +142,24 @@
       "phone": "01234567890",
       "role": "doctor",
       "createdAt": "2026-04-08T15:41:16.281Z"
+    },
+    {
+      "id": "alqlN8eY4Ro",
+      "name": "Ahmed",
+      "email": "ali@doctor.com",
+      "password": "123456",
+      "phone": "01234567890",
+      "role": "doctor",
+      "createdAt": "2026-04-08T18:58:03.919Z"
+    },
+    {
+      "id": "zLApG9xBcwI",
+      "name": "Ahmed",
+      "email": "tamer@doctor.com",
+      "password": "123456",
+      "phone": "01234567890",
+      "role": "doctor",
+      "createdAt": "2026-04-08T18:58:34.129Z"
     }
   ],
   "appointments": [
@@ -196,5 +214,6 @@
       "date": "2026-04-10"
     }
   ],
+  "pendingAppointments": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
