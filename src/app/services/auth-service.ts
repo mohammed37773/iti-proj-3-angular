@@ -24,11 +24,11 @@ export class AuthService {
   }
   
   Authorize(user: IUser) {
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("currentUser", JSON.stringify(user));
     this.currentUser.next(user);
   }
   getCurrentUserData(){
-    return JSON.parse(localStorage.getItem("user")??"{}")as IUser
+    return JSON.parse(localStorage.getItem("currentUser")??"{}")
   }
 
   logOut(){

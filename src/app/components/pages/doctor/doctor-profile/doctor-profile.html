@@ -1,3 +1,54 @@
 <!-- form to edit doctor profile using patch method in DoctorService -->
+<div class="expand center" style="min-height: 100vh;"> 
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form white colm">
+        <h1 class="colorize verdana mb-4">Profile</h1>
+        
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" formControlName="fullName" class="form-input" type="text" placeholder="Enter your full name" />
+                @if (form.get('fullName')?.touched && form.get('fullName')?.invalid) {
+                    <div class="error">Full name is required (min 3 chars)</div>
+                } 
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" class="form-input" type="email" placeholder="Enter your email" />
+                @if (form.get('email')?.touched && form.get('email')?.errors?.["required"]){
+                    <div class="error">Email is required</div>
+                } @else if (form.get('email')?.touched && form.get('email')?.errors?.["email"]) {
+                    <div class="error">Invalid email format</div>
+                } 
+                @if (form.get('email')?.errors?.['emailExists']) {                    
+                    <div class="error">Email already exists. Please choose another.</div>
+                }
+
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input id="phone" formControlName="phone" class="form-input" type="tel" placeholder="+1234567890" />
+                @if (form.get('phone')?.touched && form.get('phone')?.invalid) {
+                    <div class="error">Valid phone number is required</div>
+                }
+            </div>
+            
+        </div>
+
+        
+
+        <button type="submit" [disabled]="form.invalid || this.isLoading" class="btn btn-primary w-100">
+            @if (isLoading) {
+                <span>Updating Data...</span>
+                <div class="spinner-border spinner-border-sm ms-2" role="status"></div>
+            } @else {
+                <span>Update</span>
+            }
+        </button>
+
+    </form>
+</div>
 
 
+{{this.data | json}}

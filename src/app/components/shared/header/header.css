@@ -3,6 +3,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
+    margin-bottom: 10px;
 }
 
 .header-container {
@@ -87,9 +88,10 @@ header {
 }
 
 .nav-links a.active {
-    background: var(--mcd);
+    background: var(--mcn);
     color: white;
 }
+
 
 /* Mobile Styles */
 @media (max-width: 768px) {

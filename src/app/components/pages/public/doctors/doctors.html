@@ -1,1 +1,47 @@
-<p>doctors works!</p>
+<div class="doctors-container">
+  <h2>Find a Doctor</h2>
+  
+  <form [formGroup]="filterForm" class="filter-form">
+    <div class="filter-group">
+      <input formControlName="name" type="text" placeholder="Search by name..." class="filter-input">
+      <input formControlName="specialization" type="text" placeholder="Search by specialization..." class="filter-input">
+    </div>
+  </form>
+
+  @if (isLoading) {
+    <div class="loading">Loading doctors...</div>
+  } @else {
+    <div class="doctors-grid">
+      @for (doctor of filteredDoctors; track doctor.id) {
+        <div class="doctor-card" (click)="viewDoctor(doctor.id)">
+          <div class="d-flex flex-row align-items-center">
+              @if (doctor.avatar) {
+              <img [src]="doctor.avatar" [alt]="doctor.name" class="doctor-avatar">
+            } @else {
+              <img src="/profiles/default doctor.jpg" [alt]="doctor.name" class="doctor-avatar">
+            }
+
+            <div class="m-2">
+                <h3 class="colorize">{{ doctor.name }}</h3>
+                <p class="specialization">{{ doctor.specialization }}</p>
+
+            </div>
+            
+          </div>
+
+          <div class="rating">
+            ★ {{ doctor.rating || 0 }} ({{ doctor.reviewCount || 0 }} reviews)
+          </div>
+          @if (doctor.bio) {
+            <p class="bio">{{ doctor.bio.substring(0, 100) }}...</p>
+          }
+        </div>
+      }
+    </div>
+    
+    @if (filteredDoctors.length === 0) {
+      <div class="no-results">No doctors found matching your criteria.</div>
+    }
+  }
+</div>
+

@@ -32,12 +32,12 @@
                         }
                     }
                 }
+                <button class="logout-btn colorize" (click)="logOut()">Log Out</button>
             </div>
-            <button class="logout-btn colorize" (click)="logOut()">Log Out</button>
         } @else {
             <div class="nav-links">
-                <a routerLink="/login">Login</a>
-                <a routerLink="/register">Register</a>
+                <a routerLink="/login" routerLinkActive="active" >Login</a>
+                <a routerLink="/register" routerLinkActive="active" >Register</a>
             </div>
         }
     </nav>

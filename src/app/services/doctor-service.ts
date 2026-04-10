@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { IUser } from '../models/iuser';
 import { environment } from '../../environments/environment';
 import { ObservableInput } from 'rxjs';
-import { ITimeSlot } from '../models/idoctor';
+import { IDoctor, ITimeSlot } from '../models/idoctor';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +27,8 @@ export class DoctorService {
       },
     });
   }
-  
+
+  getAllDoctors() {
+    return this.http.get<IDoctor[]>(environment.UserUrl + '?role=doctor');
+  }
 }

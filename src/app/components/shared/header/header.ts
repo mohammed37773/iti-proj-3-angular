@@ -1,12 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 import { AuthService } from '../../../services/auth-service';
 import { map } from 'rxjs';
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, AsyncPipe, TitleCasePipe],
+  imports: [RouterLink, AsyncPipe, TitleCasePipe, RouterLinkActive],
   templateUrl: './header.html',
   styleUrl: './header.css',
   standalone: true
