@@ -115,6 +115,15 @@
       "phone": "01234567890",
       "role": "doctor",
       "createdAt": "2026-04-07T21:38:29.548Z"
+    },
+    {
+      "id": "JexebvpMGck",
+      "name": "Ahmed",
+      "email": "ahmed@Patient.com",
+      "password": "123456",
+      "phone": "01234567890",
+      "role": "doctor",
+      "createdAt": "2026-04-08T05:52:44.666Z"
     }
   ],
   "appointments": [

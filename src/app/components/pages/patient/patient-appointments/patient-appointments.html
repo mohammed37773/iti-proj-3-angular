@@ -1,1 +1,37 @@
-<p>patient-appointments works!</p>
+<div class="container">
+  <h2 class="title">My Appointments</h2>
+
+  <button class="btn-book" (click)="bookAppointment()">
+    + Book Appointment
+  </button>
+
+  <div class="appointments">
+
+    <div *ngFor="let app of appointments" class="card">
+
+      <div class="card-header">
+      <h3>Dr. {{app.doctorName || app.doctorId}}</h3>
+        <span class="status" [ngClass]="app.status">
+          {{app.status}}
+        </span>
+      </div>
+
+      <div class="card-body">
+        <p>📅 {{app.date}}</p>
+        <p>⏰ {{app.timeSlot}}</p>
+      </div>
+
+      <div class="card-actions">
+        <button class="btn cancel" (click)="cancelAppointment(app.id!)">
+          Cancel
+        </button>
+
+        <button class="btn complete" (click)="markCompleted(app)">
+          Complete
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
