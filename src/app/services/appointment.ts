@@ -11,22 +11,24 @@ export class AppointmentService {
   http = inject(HttpClient);
   baseUrl = 'http://localhost:3000/appointments';
 
-  // GET by patient
+  // ✅ GET by patient
   getAppointmentsByPatient(patientId: string): Observable<IAppointment[]> {
-    return this.http.get<IAppointment[]>(`${this.baseUrl}?patientId=${patientId}`);
+    return this.http.get<IAppointment[]>(
+      `${this.baseUrl}?patientId=${patientId}`
+    );
   }
 
-  // POST
+  // ✅ POST
   createAppointment(app: IAppointment): Observable<IAppointment> {
     return this.http.post<IAppointment>(this.baseUrl, app);
   }
 
-  // DELETE
+  // ✅ DELETE
   deleteAppointment(id: string) {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
-  // PUT (update)
+  // ✅ PUT
   updateAppointment(app: IAppointment) {
     return this.http.put(`${this.baseUrl}/${app.id}`, app);
   }

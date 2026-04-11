@@ -1,4 +1,4 @@
-<div class="register-container">
+<div class="expand center" style="min-height: 100vh;"> 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form white colm">
         <h1 class="colorize verdana mb-4">Sign up</h1>
         
@@ -18,19 +18,16 @@
                     <div class="error">Email is required</div>
                 } @else if (form.get('email')?.touched && form.get('email')?.errors?.["email"]) {
                     <div class="error">Invalid email format</div>
-                } @if (emailExistsError) {
+                } 
+                @if (form.get('email')?.errors?.['emailExists']) {                    
+                    <div class="error">Email already exists. Please choose another.</div>
+                }
+                <!-- @if (emailExistsError) {
                     <div class="error">{{ emailExistsError }}</div>
-                }
+                } -->
             </div>
 
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input id="phone" formControlName="phone" class="form-input" type="tel" placeholder="+1234567890" />
-                @if (form.get('phone')?.touched && form.get('phone')?.invalid) {
-                    <div class="error">Valid phone number is required</div>
-                }
-            </div>
-
+            
             
 
             <div class="form-group">
@@ -54,6 +51,15 @@
                     <div class="error">Passwords do not match</div>
                 }
             </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input id="phone" formControlName="phone" class="form-input" type="tel" placeholder="+1234567890" />
+                @if (form.get('phone')?.touched && form.get('phone')?.invalid) {
+                    <div class="error">Valid phone number is required</div>
+                }
+            </div>
+            
         </div>
 
         <div class="form-group">
@@ -65,7 +71,7 @@
                 }
             </div>
 
-        <button type="submit" [disabled]="form.invalid || isLoading" class="btn btn-primary w-100">
+        <button type="submit" [disabled]="form.invalid || this.isLoading" class="btn btn-primary w-100">
             @if (isLoading) {
                 <span>Creating Account...</span>
                 <div class="spinner-border spinner-border-sm ms-2" role="status"></div>
@@ -74,6 +80,6 @@
             }
         </button>
 
-        <p class="text-center mt-3">Already have an account? <a routerLink="/login" class="colorize">Log In</a></p>
+        <p>Already have account <a routerLink="/login" class="colorize">Log In</a></p>
     </form>
 </div>

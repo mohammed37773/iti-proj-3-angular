@@ -1,37 +1,165 @@
-<div class="container">
-  <h2 class="title">My Appointments</h2>
+<div class="container mt-4">
 
-  <button class="btn-book" (click)="bookAppointment()">
-    + Book Appointment
-  </button>
+  <!-- 🔍 Search Doctor -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-primary text-white">
+      Search Doctor
+    </div>
 
-  <div class="appointments">
+    <div class="card-body">
 
-    <div *ngFor="let app of appointments" class="card">
+      <div class="row g-2">
 
-      <div class="card-header">
-      <h3>Dr. {{app.doctorName || app.doctorId}}</h3>
-        <span class="status" [ngClass]="app.status">
-          {{app.status}}
-        </span>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="searchTerm"
+            (input)="searchDoctors()"
+            placeholder="ابحث باسم الدكتور"
+          />
+        </div>
+
+        <div class="col-md-6">
+          <select
+            class="form-select"
+            [(ngModel)]="selectedDoctorId"
+            (change)="onDoctorChange()"
+          >
+            <option value="0">-- اختر دكتور --</option>
+            <option *ngFor="let doc of filteredDoctors; trackBy: trackByDoctorId" [value]="doc.id">
+              {{ doc.name }}
+            </option>
+          </select>
+        </div>
+
       </div>
 
-      <div class="card-body">
-        <p>📅 {{app.date}}</p>
-        <p>⏰ {{app.timeSlot}}</p>
+      <!-- 🕒 Doctor Details -->
+      <div class="mt-3" *ngIf="selectedDoctor">
+
+        <h5>Available Slots</h5>
+
+        <div class="row">
+
+          <div
+            class="col-md-3 mb-2"
+            *ngFor="let slot of selectedDoctor.availableSlots; trackBy: trackBySlotId"
+          >
+
+            <div
+              class="border p-2 rounded text-center"
+              [class.bg-light]="!slot.isBooked"
+              [class.bg-secondary]="slot.isBooked"
+              (click)="selectSlot(slot)"
+              style="cursor: pointer"
+            >
+
+              <div>{{ slot.day }}</div>
+              <div>{{ slot.startTime }} - {{ slot.endTime }}</div>
+
+              <small>
+                {{ slot.isBooked ? 'Booked' : 'Available' }}
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ⭐ Rating (OUTSIDE slots loop) -->
+        <div class="rating mt-2" *ngIf="selectedDoctor">
+
+          <span *ngFor="let i of [].constructor(getFullStars(selectedDoctor.rating))">⭐</span>
+          <span *ngFor="let i of [].constructor(getEmptyStars(selectedDoctor.rating))">☆</span>
+
+          <small class="ms-2">
+            ({{ selectedDoctor.reviewCount }})
+          </small>
+
+        </div>
+
       </div>
 
-      <div class="card-actions">
-        <button class="btn cancel" (click)="cancelAppointment(app.id!)">
-          Cancel
-        </button>
+      <button class="btn btn-success mt-3 w-100" (click)="bookAppointment()">
+        Booking
+      </button>
 
-        <button class="btn complete" (click)="markCompleted(app)">
-          Complete
-        </button>
+    </div>
+  </div>
+
+  <!-- 📅 Appointments -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-dark text-white">
+      My Appointments
+    </div>
+
+    <div class="card-body">
+
+      <div *ngIf="appointments.length === 0" class="text-center text-muted">
+        No appointments found
+      </div>
+
+      <div *ngFor="let app of appointments; trackBy: trackByAppointmentId"
+           class="border rounded p-3 mb-3">
+
+        <div class="row align-items-center">
+
+          <div class="col-md-4">
+            <h6>Doctor</h6>
+            <p class="fw-bold">{{ app.doctorName }}</p>
+              <p>{{app.specialization}}</p>
+
+              <p>{{app.experience}}</p>
+
+          </div>
+
+          <div class="col-md-3">
+            <h6>Date</h6>
+            <p>{{ app.date }}</p>
+          
+          </div>
+
+          <div class="col-md-3">
+            <h6>Status</h6>
+
+            <span class="badge"
+              [ngClass]="{
+                'bg-warning': app.status === 'pending',
+                'bg-success': app.status === 'completed',
+                'bg-danger': app.status === 'cancelled'
+              }"
+            >
+              {{ app.status }}
+            </span>
+
+          </div>
+
+          <div class="col-md-2 text-end">
+
+            <button
+              *ngIf="app.id"
+              class="btn btn-sm btn-outline-danger me-1"
+              (click)="cancelAppointment(app.id)"
+            >
+              Cancel
+            </button>
+
+            <button
+              class="btn btn-sm btn-outline-primary"
+              (click)="markCompleted(app)"
+            >
+              Done
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
 
     </div>
-
   </div>
+
 </div>

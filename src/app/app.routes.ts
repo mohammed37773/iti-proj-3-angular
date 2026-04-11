@@ -1,23 +1,29 @@
 import { Routes } from '@angular/router';
+import { isAdminGuard } from './guards/is-admin-guard';
+import { isPatientGuard } from './guards/is-patient-guard';
+import { isDoctorGuard } from './guards/is-doctor-guard';
 
 export const routes: Routes = [
+    
+    {
+        path: "",
+        loadChildren: ()=>import("./components/pages/admin/admin-pages.routes").then(r => r.routes),
+        canMatch: [isAdminGuard]
+    },
+    {
+        path: "",
+        loadChildren: ()=>import("./components/pages/patient/patient-pages.routes").then(r => r.routes),
+        canMatch: [isPatientGuard]
+    },
+    {
+        path: "",
+        loadChildren: ()=>import("./components/pages/doctor/doctor-pages.routes").then(r => r.routes),
+        canMatch: [isDoctorGuard]
+    },
     {
         path: "",
         loadChildren: ()=>import("./components/pages/public/general-pages.routes").then(r => r.routes)
     },
-    {
-        path: "admin",
-        loadChildren: ()=>import("./components/pages/admin/admin-pages.routes").then(r => r.routes)
-    },
-    {
-        path: "patient",
-        loadChildren: ()=>import("./components/pages/patient/patient-pages.routes").then(r => r.routes)
-    },
-    {
-        path: "doctor",
-        loadChildren: ()=>import("./components/pages/doctor/doctor-pages.routes").then(r => r.routes)
-    },
-
 
     {
         path: "**",

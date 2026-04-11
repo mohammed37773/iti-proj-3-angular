@@ -1,1 +1,41 @@
-<p>patient-profile works!</p>
+<div class="profile-container" *ngIf="UserProfile && !loading">
+
+  <!-- Header -->
+  <div class="profile-header">
+
+    <div class="avatar">
+      <img [src]="UserProfile.avatar || 'https://i.pravatar.cc/150'" />
+    </div>
+
+    <div class="user-info">
+      <h2>{{ UserProfile.name }}</h2>
+      <p class="role">{{ UserProfile.role }}</p>
+      <p class="email">{{ UserProfile.email }}</p>
+    </div>
+
+  </div>
+
+  <!-- Details -->
+  <div class="profile-details">
+
+    <div class="card">
+      <h4>📞 Contact Info</h4>
+      <p><strong>Phone:</strong> {{ UserProfile.phone }}</p>
+      <p><strong>Email:</strong> {{ UserProfile.email }}</p>
+    </div>
+
+    <div class="card">
+      <h4>🧾 Account Info</h4>
+      <p><strong>ID:</strong> {{ UserProfile.id }}</p>
+      <p><strong>Created:</strong> {{ UserProfile.createdAt }}</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Loading -->
+<div *ngIf="loading" class="loading">
+  Loading profile...
+</div>
+

@@ -11,7 +11,7 @@ export const routes: Routes = [
             },
             {
 
-                path: "appointment",
+                path: "appointments",
                 loadComponent: () => import("./doctor-appointments/doctor-appointments").then(c => c.DoctorAppointments)
 
             },
@@ -21,11 +21,11 @@ export const routes: Routes = [
 
             },
             {
-                path: "history/:patientId",
+                path: "history",
                 loadComponent: () => import("./doctor-history/doctor-history").then(c => c.DoctorHistory)
             },
             {
-                path: "prescription",
+                path: "prescriptions",
                 loadComponent: () => import("./doctor-prescriptions/doctor-prescriptions").then(c => c.DoctorPrescriptions)
             },
             {
