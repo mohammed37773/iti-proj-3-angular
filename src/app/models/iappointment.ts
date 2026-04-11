@@ -1,7 +1,7 @@
 export type AppointmentStatus = 'pending' | 'confirmed' | 'completed' | 'cancelled';
 
 export interface IAppointment {
-  id: string;
+  id?: string;
   patientId: string;
   doctorId: string;
   date: string;

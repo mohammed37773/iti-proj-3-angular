@@ -117,49 +117,13 @@
       "createdAt": "2026-04-07T21:38:29.548Z"
     },
     {
-      "id": "iSchnUWqTFY",
+      "id": "JexebvpMGck",
       "name": "Ahmed",
-      "email": "ahmed@doctordelete.com",
+      "email": "ahmed@Patient.com",
       "password": "123456",
       "phone": "01234567890",
       "role": "doctor",
-      "createdAt": "2026-04-08T05:14:41.535Z"
-    },
-    {
-      "id": "xrSxAhaQ9jk",
-      "name": "Mmo",
-      "email": "mo@doc.com",
-      "password": "123456",
-      "phone": "01234567890",
-      "role": "doctor",
-      "createdAt": "2026-04-08T05:40:35.655Z"
-    },
-    {
-      "id": "4BZkUA5O0MM",
-      "name": "Ahmed",
-      "email": "ahmed2@doctor.com",
-      "password": "123456",
-      "phone": "01234567890",
-      "role": "doctor",
-      "createdAt": "2026-04-08T15:41:16.281Z"
-    },
-    {
-      "id": "alqlN8eY4Ro",
-      "name": "Ahmed",
-      "email": "ali@doctor.com",
-      "password": "123456",
-      "phone": "01234567890",
-      "role": "doctor",
-      "createdAt": "2026-04-08T18:58:03.919Z"
-    },
-    {
-      "id": "zLApG9xBcwI",
-      "name": "Ahmed",
-      "email": "tamer@doctor.com",
-      "password": "123456",
-      "phone": "01234567890",
-      "role": "doctor",
-      "createdAt": "2026-04-08T18:58:34.129Z"
+      "createdAt": "2026-04-08T05:52:44.666Z"
     }
   ],
   "appointments": [
@@ -182,6 +146,420 @@
       "status": "pending",
       "notes": "Skin rash consultation",
       "createdAt": "2026-03-28"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-10T14:49:14.076Z",
+      "id": "4wscOIDuBOQ"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T14:49:53.734Z",
+      "id": "I3cw_HE-diw"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T14:49:54.468Z",
+      "id": "iA_KgM8qIhQ"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-10T14:51:05.410Z",
+      "id": "NBK8_ktBtfk"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T14:51:06.916Z",
+      "id": "Xyis4EWeUAE"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T20:14:18.700Z",
+      "id": "Kjj5GACvQnI"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T20:14:31.603Z",
+      "id": "RUNw-vfMNeY"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:43:36.894Z",
+      "id": "21l0NmNNrGA"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:43:37.772Z",
+      "id": "TqlPY0Y6ixU"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:43:47.476Z",
+      "id": "hyzvdnd_mz8"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:43:48.096Z",
+      "id": "7WHrjlQKyME"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:43:48.707Z",
+      "id": "qLo4_Bp8_Yc"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:43:57.879Z",
+      "id": "PuIIrdy-pu0"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:44:05.759Z",
+      "id": "0S-WyvWE9M8"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:44:24.279Z",
+      "id": "JGZkBEjFmK0"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:44:26.159Z",
+      "id": "5QHzqVrEWUI"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:44:36.155Z",
+      "id": "3_YNP1XMxF0"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:46:19.988Z",
+      "id": "5fRpt3V-1UM"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "1",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:46:22.038Z",
+      "id": "gik_zjrmwAM"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "4",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:46:24.150Z",
+      "id": "Dx7B-2Hinxw"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "4",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T21:46:45.392Z",
+      "id": "2YWuAlSc7pU"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-10T22:17:57.424Z",
+      "id": "RWOjS_e6ABQ",
+      "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T22:22:13.373Z",
+      "id": "5WZ1JPxu7uI"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-10T22:22:23.097Z",
+      "id": "bCupjZER92s",
+      "doctorName": "Sara Mohamed"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-10T22:55:00.705Z",
+      "id": "8GFKtQIgeI8",
+      "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T22:55:03.203Z",
+      "id": "SL4oSFesZNc"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "4",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-10T22:55:11.593Z",
+      "id": "sOmKj61EfsI",
+      "doctorName": "Mohamed Ali"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T23:08:29.737Z",
+      "id": "mME0yCucPVU"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T23:08:34.621Z",
+      "id": "IIwxPShaFsM"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T23:08:37.595Z",
+      "id": "nN5apTLlLq4"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T23:28:11.803Z",
+      "id": "uPe4DMD1Q-A"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-10T23:28:22.498Z",
+      "id": "ycMMgkjMQaA",
+      "doctorName": "Sara Mohamed"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T23:53:15.557Z",
+      "id": "T0J0-FtxzHo"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "2026-04-15",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-10T23:53:27.926Z",
+      "id": "YiVGaHAKc9A"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-11T00:08:38.409Z",
+      "id": "Z5PEV2oCY10"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-11T00:18:59.984Z",
+      "id": "dV03So4HL6E",
+      "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-11T00:24:34.610Z",
+      "id": "bbe1Pc3eur4"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-11T00:27:05.676Z",
+      "id": "CW7ZEDV99Ms",
+      "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-11T00:28:01.519Z",
+      "id": "0tw8wgAx3ZY",
+      "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "Monday",
+      "timeSlot": "10:00 - 10:30",
+      "status": "pending",
+      "createdAt": "2026-04-11T00:29:21.728Z",
+      "id": "tehQYS0eVRg"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-11T01:16:13.555Z",
+      "id": "3vDgEBvn1Jk"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "completed",
+      "createdAt": "2026-04-11T01:19:21.913Z",
+      "id": "ui6RHjs9Etc",
+      "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "Monday",
+      "timeSlot": "10:00 - 10:30",
+      "status": "pending",
+      "createdAt": "2026-04-11T01:19:57.678Z",
+      "id": "z9dbZ4qrS_4"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-11T07:24:38.785Z",
+      "id": "nFqCfg2_mxk"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "Monday",
+      "timeSlot": "10:30 - 11:00",
+      "status": "pending",
+      "createdAt": "2026-04-11T07:26:27.872Z",
+      "id": "m9zHZGP9fgI"
     }
   ],
   "prescriptions": [
@@ -214,6 +592,5 @@
       "date": "2026-04-10"
     }
   ],
-  "pendingAppointments": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
