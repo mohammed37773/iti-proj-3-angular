@@ -55,16 +55,18 @@ export class Doctors implements OnInit {
   }
 
   applyFilters() {
+    console.log("filtering");
+    
     const nameFilter = this.filterForm.get('name')?.value?.toLowerCase() || '';
     const specFilter = this.filterForm.get('specialization')?.value?.toLowerCase() || '';
 
     this.filteredDoctors = this.doctors.filter(doctor =>
       (nameFilter === '' || doctor.name.toLowerCase().includes(nameFilter)) &&
-      (specFilter === '' || doctor.specialization.toLowerCase().includes(specFilter))
+      (specFilter === '' || doctor.specialization?.toLowerCase().includes(specFilter))
     );
   }
 
-  viewDoctor(id: string) {
+  viewDoctor(id: string) {   
     this.router.navigate(['/doctors', id]);
   }
 }

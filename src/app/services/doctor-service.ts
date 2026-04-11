@@ -31,4 +31,8 @@ export class DoctorService {
   getAllDoctors() {
     return this.http.get<IDoctor[]>(environment.UserUrl + '?role=doctor');
   }
+
+  getDoctorById(id: string) {
+    return this.http.get<IDoctor>(`${environment.UserUrl}/${id}`);
+  }
 }

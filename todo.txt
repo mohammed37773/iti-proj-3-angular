@@ -1,0 +1,1 @@
+move validation from log in and register to the auth service

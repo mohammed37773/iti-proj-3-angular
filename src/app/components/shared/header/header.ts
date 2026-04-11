@@ -13,8 +13,7 @@ import { AsyncPipe, TitleCasePipe } from '@angular/common';
 })
 export class Header {
   auth = inject(AuthService);
-  role = this.auth.currentUser.asObservable()
-        .pipe(map(user => user?.role));
+  role = this.auth.role;
   
   isNavOpen = signal(false);
 

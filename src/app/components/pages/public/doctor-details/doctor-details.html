@@ -1,1 +1,60 @@
-<p>doctor-details works!</p>
+<div class="doctor-details-container">
+  <button class="back-btn" (click)="goBack()">
+    ← Back to Doctors
+  </button>
+  {{isLoading|json}}
+  {{isLoading$|json}}
+  @if (isLoading$) {
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <p>Loading doctor details...</p>
+    </div>
+  } @else if (error) {
+    <div class="error-container">
+      <h3>{{ error }}</h3>
+      <button class="back-btn" (click)="goBack()">Go Back</button>
+    </div>
+  } @else if (doctor) {
+    <div class="doctor-profile">
+      <div class="profile-header">
+        @if (doctor.avatar) {
+          <img [src]="doctor.avatar" [alt]="doctor.name" class="profile-avatar">
+        } @else {
+          <img src="/profiles/default doctor.jpg" [alt]="doctor.name" class="profile-avatar">
+        }
+        <div class="profile-info">
+          <h1>{{ doctor.name }}</h1>
+          <p class="specialization">{{ doctor.specialization }}</p>
+          <div class="experience">🩺 {{ doctor.experience }} years experience</div>
+          <div class="rating">
+            ★ {{ doctor.rating ?? 0 }} ({{ doctor.reviewCount ?? 0 }} reviews)
+          </div>
+        </div>
+      </div>
+
+      @if (doctor.bio) {
+        <div class="bio-section">
+          <h3>About Doctor</h3>
+          <p>{{ doctor.bio }}</p>
+        </div>
+      }
+
+      <div class="slots-section">
+        <h3>Available Time Slots</h3>
+        @if (availableSlots.length > 0) {
+          <div class="slots-grid">
+            @for (slot of availableSlots; track slot.startTime + slot.day) {
+              <div class="slot-card" (click)="bookSlot(slot)">
+                <div class="slot-day">{{ slot.day }}</div>
+                <div class="slot-time">{{ slot.startTime }} - {{ slot.endTime }}</div>
+                <div class="slot-status">Available</div>
+              </div>
+            }
+          </div>
+        } @else {
+          <p class="no-slots">No available slots at the moment. Check back later!</p>
+        }
+      </div>
+    </div>
+  }
+</div>

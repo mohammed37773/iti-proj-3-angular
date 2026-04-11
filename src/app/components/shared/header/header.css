@@ -115,17 +115,17 @@ header {
 
     .nav {
         position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
+        top: 49px;
+        right: 0;
+        width: 60%;
+        height: calc(100vh - 49px);
         background: white;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         padding: 2rem 1rem;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        transform: translateY(-100%);
+        transform: translateX(100%);
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
