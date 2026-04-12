@@ -1,9 +1,10 @@
+import { environment } from './../../environments/environment';
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { IAppointment } from '../models/iappointment';
 import { IUser } from '../models/iuser';
+import { MedicalRecord } from '../models/imedical-record';
 
 @Injectable({
   providedIn: 'root',
@@ -59,11 +60,11 @@ updateProfile(id: string, profile: IUser) {
   // MEDICAL
   // =========================
 
-  getMedicalRecords(patientId: string) {
-    return this.http.get(
-      `${environment.medicalUrl}?patientId=${patientId}`
-    );
-  }
+  getMedicalRecords() {
+  return this.http.get<MedicalRecord[]>(
+    `http://localhost:3000/medicalRecords`
+  );
+}
 
   // =========================
   // DOCTOR SEARCH
@@ -74,4 +75,11 @@ updateProfile(id: string, profile: IUser) {
       `${environment.UserUrl}?name_like=${name}`
     );
   }
+
+getUsers() {
+  return this.http.get<any[]>(`http://localhost:3000/users`);
 }
+
+  
+}
+

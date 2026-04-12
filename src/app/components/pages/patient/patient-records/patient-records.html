@@ -1,1 +1,59 @@
-<p>patient-records works!</p>
+<div class="records-container">
+
+  <h2>📋 Medical Records</h2>
+
+  <!-- Loading -->
+  <div *ngIf="!medcalRecordPatent?.length">
+    Loading records...
+  </div>
+
+  <!-- No data -->
+  <div *ngIf="medcalRecordPatent?.length === 0">
+    No medical records found.
+  </div>
+
+  <!-- Records -->
+  <div class="record-card" *ngFor="let record of medcalRecordPatent">
+
+    <div class="record-header">
+      <h3>🩺 Medical Record</h3>
+      <span>{{ record.date }}</span>
+    </div>
+
+    <p>
+      <strong>Diagnosis:</strong>
+      {{ record.diagnosis }}
+    </p>
+
+    <p>
+      <strong>Doctor:</strong>
+      {{ record.doctorName }}
+    </p>
+
+    <p>
+      <strong>Notes:</strong>
+      {{ record.notes }}
+    </p>
+
+    <!-- Prescription -->
+    <div *ngIf="record.prescription">
+      <hr />
+
+      <h4>💊 Prescription</h4>
+
+      <p>
+        <strong>Diagnosis:</strong>
+        {{ record.prescription.diagnosis }}
+      </p>
+
+      <div *ngFor="let med of record.prescription.medications">
+        <p>
+          {{ med.name }} - {{ med.dosage }}
+          ({{ med.frequency }} - {{ med.duration }})
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
