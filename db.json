@@ -13,7 +13,7 @@
       "id": "2",
       "name": "Ahmed Hassan",
       "email": "ahmed@doctor.com",
-      "password": "doctor123",
+      "password": "123456",
       "phone": "01011111111",
       "role": "doctor",
       "specialization": "Cardiology",
@@ -111,7 +111,7 @@
       "id": "DZsmU7GHXkE",
       "name": "Ahmed",
       "email": "ahmed@fake.com",
-      "password": "123456",
+      "password": "aqwqqqq",
       "phone": "01234567890",
       "role": "doctor",
       "createdAt": "2026-04-07T21:38:29.548Z"
@@ -124,6 +124,15 @@
       "phone": "01234567890",
       "role": "doctor",
       "createdAt": "2026-04-08T05:52:44.666Z"
+    },
+    {
+      "id": "B-2c_wY73nI",
+      "name": "test",
+      "email": "test@test",
+      "password": "test123",
+      "phone": "01234567890",
+      "role": "doctor",
+      "createdAt": "2026-04-12T21:41:11.937Z"
     }
   ],
   "appointments": [

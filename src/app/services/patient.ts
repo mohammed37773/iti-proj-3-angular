@@ -74,4 +74,10 @@ updateProfile(id: string, profile: IUser) {
       `${environment.UserUrl}?name_like=${name}`
     );
   }
+
+  getAllPatients() {
+    return this.http.get<IUser[]>(environment.UserUrl + '?role=patient');
+  }
+
+  
 }

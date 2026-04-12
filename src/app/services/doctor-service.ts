@@ -35,4 +35,12 @@ export class DoctorService {
   getDoctorById(id: string) {
     return this.http.get<IDoctor>(`${environment.UserUrl}/${id}`);
   }
+
+  deleteDoctor(id: string) {
+    return this.http.delete(`${environment.UserUrl}/${id}`);
+  }
+
+  updateDoctorPartial(id: string, doctor: any) {
+    return this.http.patch(`${environment.UserUrl}/${id}`, doctor);
+  }
 }
