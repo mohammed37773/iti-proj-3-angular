@@ -1,8 +1,13 @@
 <!-- form to edit doctor profile using patch method in DoctorService -->
 <div class="expand center" style="min-height: 100vh;"> 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form white colm">
-        <h1 class="colorize verdana mb-4">Profile</h1>
+        <h1 class="colorize verdana mb-4">Your Profile</h1>
         
+        @if (this.data.avatar) {
+          <img [src]="this.data.avatar" [alt]="this.data.name" class="doctor-avatar">
+        } @else {
+          <img src="/profiles/default doctor.jpg" [alt]="this.data.name" class="doctor-avatar">
+        }
         <div class="form-grid">
             <div class="form-group">
                 <label for="fullName">Full Name</label>
@@ -11,6 +16,21 @@
                     <div class="error">Full name is required (min 3 chars)</div>
                 } 
             </div>
+
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <input id="bio" formControlName="bio" class="form-input" type="text" placeholder="About yourself" />
+            </div>
+
+            <div class="form-group">
+                <label for="specialization">Specialization</label>
+                <input id="specialization" formControlName="specialization" class="form-input" type="tel" placeholder="specialization" />
+            </div>
+        
+            <div class="form-group">
+                <label for="experience">Experience</label>
+                <input id="experience" formControlName="experience" class="form-input" type="number" placeholder="Experience years" />
+                </div>
             
             <div class="form-group">
                 <label for="email">Email</label>
@@ -33,6 +53,7 @@
                     <div class="error">Valid phone number is required</div>
                 }
             </div>
+
             
         </div>
 
@@ -51,4 +72,4 @@
 </div>
 
 
-{{this.data | json}}
+<!-- {{this.data | json}} -->

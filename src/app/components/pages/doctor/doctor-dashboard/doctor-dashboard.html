@@ -1,1 +1,59 @@
-<div class="container red">hello docotr</div>
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>Welcome back, Dr. {{ userName }}</h1>
+    <p>Here&#x27;s what&#x27;s happening with your practice today.</p>
+  </header>
+
+  <section class="stats-grid">
+    <div class="stat-card blue">
+      <div class="icon">📅</div>
+      <h3>{{ todayAppts() }}</h3>
+      <p>Today&#x27;s Appointments</p>
+    </div>
+    <div class="stat-card green">
+      <div class="icon">📋</div>
+      <h3>{{ upcomingAppts() }}</h3>
+      <p>Upcoming Appointments</p>
+    </div>
+    <div class="stat-card orange">
+      <div class="icon">👥</div>
+      <h3>{{ totalPatients() }}</h3>
+      <p>Total Patients</p>
+    </div>
+    <div class="stat-card purple">
+      <div class="icon">⭐</div>
+      <h3>4.8</h3>
+      <p>Average Rating</p>
+    </div>
+  </section>
+
+  <section class="recent-patients">
+    <h2>Recent Patients</h2>
+    @if (recentPatients().length > 0) {
+      <div class="patients-grid">
+        @for (patient of recentPatients(); track patient.patientId) {
+          <div class="patient-card">
+            <div class="patient-info">
+              <strong>Patient ID: {{ patient.patientId }}</strong>
+              <span>Last Appt: {{ patient.lastDate }}</span>
+              <span>Status: {{ patient.status | titlecase }}</span>
+            </div>
+            <a routerLink="/appointments" class="btn small">View Details</a>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="no-data">No recent patients yet.</p>
+    }
+  </section>
+
+  <section class="quick-actions">
+    <h2>Quick Actions</h2>
+    <div class="actions-grid">
+      <a routerLink="/appointments" class="btn primary large">Manage Appointments</a>
+      <a routerLink="/history" class="btn secondary large">View History</a>
+      <a routerLink="/prescriptions" class="btn secondary large">Prescriptions</a>
+      <a routerLink="/profile" class="btn secondary large">My Profile</a>
+    </div>
+  </section>
+</div>

@@ -1,1 +1,99 @@
-<p>doctor-prescriptions works!</p>
+<div class="prescriptions-container">
+  <div class="header">
+    <h2>My Prescriptions</h2>
+    <a routerLink="/dashboard" class="back-btn">← Back to Dashboard</a>
+  </div>
+
+  @if (error) {
+    <div class="error">
+      <h3>{{ error }}</h3>
+    </div>
+  }
+
+  <!-- New Prescription Form -->
+  <div class="form-section">
+    <h3>Create New Prescription</h3>
+    <div class="form-group">
+      <label for="patient">Patient</label>
+      <select id="patient" [(ngModel)]="newPrescription.patientId" (change)="onPatientChange()">
+        <option value="">Select Patient</option>
+        @for (patient of patients; track patient.id) {
+          <option [value]="patient.id">{{ patient.name }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="appointment">Appointment</label>
+      <select id="appointment" [(ngModel)]="newPrescription.appointmentId">
+        <option value="">Select Appointment</option>
+        @for (appt of appointments; track appt.id) {
+          <option [value]="appt.id">{{ appt.date }} - {{ appt.timeSlot }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="diagnosis">Diagnosis</label>
+      <textarea id="diagnosis" [(ngModel)]="newPrescription.diagnosis" rows="3" placeholder="Enter diagnosis..."></textarea>
+    </div>
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea id="notes" [(ngModel)]="newPrescription.notes" rows="2" placeholder="Additional notes..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Medications</label>
+      @for (med of newPrescription.medications; track $index; let i = $index) {
+        <div class="meds-group">
+          <input [(ngModel)]="med.name" class="med-input" placeholder="Medication name">
+          <input [(ngModel)]="med.dosage" class="med-input" placeholder="Dosage">
+          <input [(ngModel)]="med.frequency" class="med-input" placeholder="Frequency">
+          <input [(ngModel)]="med.duration" class="med-input" placeholder="Duration">
+          <button type="button" class="remove-med" (click)="removeMedication(i)">Remove</button>
+        </div>
+      }
+      <div class="meds-group">
+        <input [(ngModel)]="newMed.name" class="med-input" placeholder="Medication name">
+        <input [(ngModel)]="newMed.dosage" class="med-input" placeholder="Dosage">
+        <input [(ngModel)]="newMed.frequency" class="med-input" placeholder="Frequency">
+        <input [(ngModel)]="newMed.duration" class="med-input" placeholder="Duration">
+        <button type="button" class="add-med-btn" (click)="addMedication()">Add Medication</button>
+      </div>
+    </div>
+    <button class="submit-btn" (click)="createPrescription()">Create Prescription</button>
+  </div>
+
+  <!-- Prescriptions List -->
+  @if (isLoading$ | async) {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading prescriptions...</p>
+    </div>
+  } @else if (prescriptions.length === 0) {
+    <div class="no-data">
+      <h3>No prescriptions</h3>
+      <p>Create your first prescription above.</p>
+    </div>
+  } @else {
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Diagnosis</th>
+            <th>Medications</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (presc of prescriptions; track presc.id) {
+            <tr>
+              <td>{{ presc.patientName }}</td>
+              <td>{{ presc.diagnosis }}</td>
+              <td class="meds-list">{{ presc.medications.map(m => `${m.name} (${m.dosage})`).join(', ') }}</td>
+              <td>{{ presc.createdAt | date:'short' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

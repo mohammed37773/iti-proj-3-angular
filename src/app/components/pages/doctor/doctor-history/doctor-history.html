@@ -1,1 +1,56 @@
-<p>doctor-history works!</p>
+<div class="history-container">
+  <div class="header">
+    <h2>My Medical History</h2>
+    <a routerLink="/dashboard" class="back-btn">← Back to Dashboard</a>
+  </div>
+
+  @if (isLoading$ | async) {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading history...</p>
+    </div>
+  } @else if (error) {
+    <div class="error">
+      <h3>{{ error }}</h3>
+      <a routerLink="/dashboard" class="back-btn">Go Back</a>
+    </div>
+  } @else if (historyItems.length === 0) {
+    <div class="no-data">
+      <h3>No history yet</h3>
+      <p>Completed appointments with records will appear here.</p>
+    </div>
+  } @else {
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Patient</th>
+            <th>Diagnosis</th>
+            <th>Prescription</th>
+            <th>Record Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of historyItems; track item.appt.id) {
+            <tr>
+              <td>{{ item.appt.date }}</td>
+              <td>{{ item.patientName }}</td>
+              <td>{{ item.record?.diagnosis || '-' }}</td>
+              <td>
+                @if (item.prescription?.medications?.length) {
+                  <span class="meds">
+                {{ item.prescription?.medications?.map(m => `${m.name} (${m.dosage})`)?.join(', ') || '-' }}
+                  </span>
+                } @else {
+                  <span>-</span>
+                }
+              </td>
+              <td>{{ item.record?.date || '-' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

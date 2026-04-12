@@ -8,7 +8,7 @@
     </div>
   </form>
 
-  @if (isLoading) {
+  @if (isLoading$ | async) {
     <div class="loading">Loading doctors...</div>
   } @else {
     <div class="doctors-grid">
