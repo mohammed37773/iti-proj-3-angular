@@ -1,7 +1,7 @@
 import {
   Title
-} from "./chunk-E3FLYNBN.js";
-import "./chunk-6TXK3TYE.js";
+} from "./chunk-6DYQ7TGR.js";
+import "./chunk-JFRO3TZP.js";
 import {
   HashLocationStrategy,
   Location,
@@ -11,11 +11,11 @@ import {
   PathLocationStrategy,
   PlatformNavigation,
   ViewportScroller
-} from "./chunk-WBTYHLUS.js";
+} from "./chunk-5JXLWJZI.js";
 import {
   LOCATION_INITIALIZED,
   PlatformLocation
-} from "./chunk-EFTJ7KLQ.js";
+} from "./chunk-YSQ6SUMF.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
@@ -92,7 +92,7 @@ import {
   ɵɵloadQuery,
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
-} from "./chunk-SS4EV26Y.js";
+} from "./chunk-T6WOCTXP.js";
 import {
   defer,
   isObservable
@@ -5967,7 +5967,7 @@ function mapToCanDeactivate(providers) {
 function mapToResolve(provider) {
   return (...params) => inject(provider).resolve(...params);
 }
-var VERSION = new Version("21.2.7");
+var VERSION = new Version("21.2.8");
 export {
   ActivatedRoute,
   ActivatedRouteSnapshot,

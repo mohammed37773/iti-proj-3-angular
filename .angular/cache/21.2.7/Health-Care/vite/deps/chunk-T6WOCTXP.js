@@ -641,7 +641,7 @@ var Version = class {
     this.patch = parts.slice(2).join(".");
   }
 };
-var VERSION = new Version("21.2.7");
+var VERSION = new Version("21.2.8");
 var DOC_PAGE_BASE_URL = (() => {
   const full = VERSION.full;
   const isPreRelease = full.includes("-next") || full.includes("-rc") || full === "0.0.0-PLACEHOLDER";
@@ -12187,7 +12187,7 @@ var ComponentFactory2 = class extends ComponentFactory$1 {
   }
 };
 function createRootTView(rootSelectorOrNode, componentDef, componentBindings, directives) {
-  const tAttributes = rootSelectorOrNode ? ["ng-version", "21.2.7"] : extractAttrsAndClassesFromSelector(componentDef.selectors[0]);
+  const tAttributes = rootSelectorOrNode ? ["ng-version", "21.2.8"] : extractAttrsAndClassesFromSelector(componentDef.selectors[0]);
   let creationBindings = null;
   let updateBindings = null;
   let varsToAllocate = 0;
@@ -12533,7 +12533,10 @@ function populateDehydratedViewsInLContainerImpl(lContainer, tNode, hostLView) {
   }
   const currentRNode = getSegmentHead(hydrationInfo, noOffsetIndex);
   const serializedViews = hydrationInfo.data[CONTAINERS]?.[noOffsetIndex];
-  ngDevMode && assertDefined(serializedViews, "Unexpected state: no hydration info available for a given TNode, which represents a view container.");
+  if (serializedViews === void 0) {
+    ngDevMode && console.warn("Unexpected state: no hydration info available for a given TNode, which represents a view container.");
+    return false;
+  }
   const [commentNode, dehydratedViews] = locateDehydratedViewsInContainer(currentRNode, serializedViews);
   if (ngDevMode) {
     validateMatchingNode(commentNode, Node.COMMENT_NODE, null, hostLView, tNode, true);
@@ -15974,9 +15977,11 @@ function triggerResourceLoading(tDetails, lView, tNode) {
   }
   tDetails.loadingPromise = Promise.allSettled(dependenciesFn()).then((results) => {
     let failed = false;
+    let failedReason = null;
     const directiveDefs = [];
     const pipeDefs = [];
-    for (const result of results) {
+    for (let i = 0; i < results.length; i++) {
+      const result = results[i];
       if (result.status === "fulfilled") {
         const dependency = result.value;
         const directiveDef = getComponentDef(dependency) || getDirectiveDef(dependency);
@@ -15990,6 +15995,7 @@ function triggerResourceLoading(tDetails, lView, tNode) {
         }
       } else {
         failed = true;
+        failedReason = result.reason instanceof Error ? result.reason : new Error(String(result.reason));
         break;
       }
     }
@@ -15997,7 +16003,32 @@ function triggerResourceLoading(tDetails, lView, tNode) {
       tDetails.loadingState = DeferDependenciesLoadingState.FAILED;
       if (tDetails.errorTmplIndex === null) {
         const templateLocation = ngDevMode ? getTemplateLocationDetails(lView) : "";
-        const error = new RuntimeError(-750, ngDevMode && `Loading dependencies for \`@defer\` block failed, but no \`@error\` block was configured${templateLocation}. Consider using the \`@error\` block to render an error state.`);
+        let errorMsg = "";
+        if (ngDevMode) {
+          errorMsg = `Loading dependencies for \`@defer\` block failed, but no \`@error\` block was configured${templateLocation}. Consider using the \`@error\` block to render an error state.`;
+          const depsFn = tDetails.dependencyResolverFn;
+          const errorReason = failedReason?.message;
+          if (depsFn) {
+            errorMsg += `
+
+Angular tried to invoke the following dependency function (compiler-generated):
+\`\`\`
+${depsFn.toString()}
+\`\`\``;
+          }
+          if (errorReason) {
+            errorMsg += depsFn ? `
+
+but it resulted in the following error:
+
+${errorReason}` : `
+
+The loading resulted in the following error:
+
+${errorReason}`;
+          }
+        }
+        const error = new RuntimeError(-750, errorMsg);
         handleUncaughtError(lView, error);
       }
     } else {
@@ -22452,7 +22483,6 @@ function createMouseSpecialEvent(e, target) {
   copy["_originalEvent"] = e;
   return copy;
 }
-var isIos = typeof navigator !== "undefined" && /iPhone|iPad|iPod/.test(navigator.userAgent);
 var EventContractContainer = class {
   element;
   handlerInfos = [];
@@ -22460,9 +22490,6 @@ var EventContractContainer = class {
     this.element = element;
   }
   addEventListener(eventType, getHandler, passive) {
-    if (isIos) {
-      this.element.style.cursor = "pointer";
-    }
     this.handlerInfos.push(addEventListener(this.element, eventType, getHandler(this.element), passive));
   }
   cleanUp() {
@@ -26369,4 +26396,4 @@ export {
   RESPONSE_INIT,
   REQUEST_CONTEXT
 };
-//# sourceMappingURL=chunk-SS4EV26Y.js.map
+//# sourceMappingURL=chunk-T6WOCTXP.js.map
