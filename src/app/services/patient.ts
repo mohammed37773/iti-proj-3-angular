@@ -76,6 +76,12 @@ updateProfile(id: string, profile: IUser) {
     );
   }
 
+  getAllPatients() {
+    return this.http.get<IUser[]>(environment.UserUrl + '?role=patient');
+  }
+
+  
+
 getUsers() {
   return this.http.get<any[]>(`http://localhost:3000/users`);
 }

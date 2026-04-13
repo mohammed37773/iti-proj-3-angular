@@ -8,7 +8,6 @@
   "projects": {
     "Health-Care": {
       "projectType": "application",
-      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,10 +23,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css",
-              "src/assets/css/bootstrap-grid.min.css"
-            ]
+            "styles": ["src/styles.css", "src/assets/css/bootstrap-grid.min.css"]
           },
           "configurations": {
             "production": {

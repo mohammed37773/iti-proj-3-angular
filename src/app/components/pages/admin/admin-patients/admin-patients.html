@@ -1,1 +1,20 @@
-<p>admin-patients works!</p>
+<div class="container mt-4">
+  @if (isLoading) {
+    <p>Loading patients...</p>
+  } @else if (patients.length == 0) {
+    <p>No Patients To Show.</p>
+  } @else {
+    <div class="row">
+      @for (patient of patients; track patient.id) {
+        <div class="card mb-3 col-4">
+          <div class="card-header">
+            <h5 class="mb-1">{{ patient.name }}</h5>
+            <p class="mb-1">{{ patient.email }}</p>
+            <p class="mb-1">{{ patient.phone }}</p>
+          </div>
+          <!-- <button class="btn btn-danger" (click)="deactivatePatient(patient.id)">Deactivate</button> -->
+        </div>
+      }
+    </div>
+  }
+</div>
