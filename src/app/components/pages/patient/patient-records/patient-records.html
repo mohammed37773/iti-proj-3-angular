@@ -1,57 +1,74 @@
-<div class="records-container">
+<div class="page-wrapper">
 
-  <h2>📋 Medical Records</h2>
+  <div class="records-container">
 
-  <!-- Loading -->
-  <div *ngIf="!medcalRecordPatent?.length">
-    Loading records...
-  </div>
+    <h2 class="title">📋 Medical Records</h2>
 
-  <!-- No data -->
-  <div *ngIf="medcalRecordPatent?.length === 0">
-    No medical records found.
-  </div>
-
-  <!-- Records -->
-  <div class="record-card" *ngFor="let record of medcalRecordPatent">
-
-    <div class="record-header">
-      <h3>🩺 Medical Record</h3>
-      <span>{{ record.date }}</span>
+    <!-- Loading -->
+    <div *ngIf="!medcalRecordPatent?.length" class="state">
+      Loading records...
     </div>
 
-    <p>
-      <strong>Diagnosis:</strong>
-      {{ record.diagnosis }}
-    </p>
+    <!-- No data -->
+    <div *ngIf="medcalRecordPatent?.length === 0" class="state">
+      No medical records found.
+    </div>
 
-    <p>
-      <strong>Doctor:</strong>
-      {{ record.doctorName }}
-    </p>
+    <!-- GRID -->
+    <div class="records-grid">
 
-    <p>
-      <strong>Notes:</strong>
-      {{ record.notes }}
-    </p>
+      <div class="record-card" *ngFor="let record of medcalRecordPatent">
 
-    <!-- Prescription -->
-    <div *ngIf="record.prescription">
-      <hr />
+        <!-- HEADER -->
+        <div class="record-header">
+          <div>
+            <h3>🩺 Medical Record</h3>
+            <span class="date">{{ record.date }}</span>
+          </div>
+        </div>
 
-      <h4>💊 Prescription</h4>
+        <div class="divider"></div>
 
-      <p>
-        <strong>Diagnosis:</strong>
-        {{ record.prescription.diagnosis }}
-      </p>
+        <!-- BODY -->
+        <div class="record-body">
 
-      <div *ngFor="let med of record.prescription.medications">
-        <p>
-          {{ med.name }} - {{ med.dosage }}
-          ({{ med.frequency }} - {{ med.duration }})
-        </p>
+          <div class="row">
+            <span class="label">Diagnosis</span>
+            <span class="value highlight">{{ record.diagnosis }}</span>
+          </div>
+
+          <div class="row">
+            <span class="label">Doctor</span>
+            <span class="value">{{ record.doctorName }}</span>
+          </div>
+
+          <div class="column">
+            <span class="label">Notes</span>
+            <p class="notes">{{ record.notes }}</p>
+          </div>
+
+        </div>
+
+        <!-- PRESCRIPTION -->
+        <div class="prescription" *ngIf="record.prescription">
+
+          <h4>💊 Prescription</h4>
+
+          <p><strong>Diagnosis:</strong> {{ record.prescription.diagnosis }}</p>
+
+          <div class="medications">
+            <div class="med" *ngFor="let med of record.prescription.medications">
+              <span class="med-name">{{ med.name }}</span>
+              <span class="med-info">
+                {{ med.dosage }} • {{ med.frequency }} • {{ med.duration }}
+              </span>
+            </div>
+          </div>
+
+        </div>
+
       </div>
+
     </div>
 
   </div>

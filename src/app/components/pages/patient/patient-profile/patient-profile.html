@@ -1,41 +1,75 @@
-<div class="profile-container" *ngIf="UserProfile && !loading">
+<div class="page-center" *ngIf="UserProfile && !loading">
 
-  <!-- Header -->
-  <div class="profile-header">
+  <!-- 👁️ VIEW MODE -->
+  <form *ngIf="!isEditMode" class="register-form white colm">
 
-    <div class="avatar">
-      <img [src]="UserProfile.avatar || 'https://i.pravatar.cc/150'" />
+    <h1 class="colorize verdana mb-4">Your Profile</h1>
+
+    <img [src]="UserProfile.avatar || 'https://i.pravatar.cc/150'" 
+         class="doctor-avatar" />
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input [value]="UserProfile.name" class="form-input" disabled>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input [value]="UserProfile.email" class="form-input" disabled>
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input [value]="UserProfile.phone" class="form-input" disabled>
+      </div>
+
     </div>
 
-    <div class="user-info">
-      <h2>{{ UserProfile.name }}</h2>
-      <p class="role">{{ UserProfile.role }}</p>
-      <p class="email">{{ UserProfile.email }}</p>
+    <button type="button" class="btn-submit" (click)="openEdit()">
+      Edit
+    </button>
+
+  </form>
+
+  <!-- ✏️ EDIT MODE -->
+  <form *ngIf="isEditMode" class="register-form white colm">
+
+    <h1 class="colorize verdana mb-4">Edit Profile</h1>
+
+    <img [src]="editModel.avatar || 'https://i.pravatar.cc/150'" 
+         class="doctor-avatar" />
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input [(ngModel)]="editModel.name" name="name" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input [(ngModel)]="editModel.email" name="email" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input [(ngModel)]="editModel.phone" name="phone" class="form-input">
+      </div>
+
     </div>
 
-  </div>
-
-  <!-- Details -->
-  <div class="profile-details">
-
-    <div class="card">
-      <h4>📞 Contact Info</h4>
-      <p><strong>Phone:</strong> {{ UserProfile.phone }}</p>
-      <p><strong>Email:</strong> {{ UserProfile.email }}</p>
+    <div class="actions">
+      <button type="button" class="btn-submit" (click)="saveUpdate()">Save</button>
+      <button type="button" class="btn-cancel" (click)="cancelEdit()">Cancel</button>
     </div>
 
-    <div class="card">
-      <h4>🧾 Account Info</h4>
-      <p><strong>ID:</strong> {{ UserProfile.id }}</p>
-      <p><strong>Created:</strong> {{ UserProfile.createdAt }}</p>
-    </div>
-
-  </div>
+  </form>
 
 </div>
 
-<!-- Loading -->
+<!-- ⏳ Loading -->
 <div *ngIf="loading" class="loading">
-  Loading profile...
+  Loading...
 </div>
-

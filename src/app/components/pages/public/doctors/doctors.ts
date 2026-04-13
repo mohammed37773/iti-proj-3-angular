@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { DoctorService } from '../../../../services/doctor-service';
 import { AuthService } from '../../../../services/auth-service';
 import { IDoctor } from '../../../../models/idoctor';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-doctors',
@@ -23,7 +24,8 @@ export class Doctors implements OnInit {
 
   doctors: IDoctor[] = [];
   filteredDoctors: IDoctor[] = [];
-  isLoading = false;
+  isLoading = new BehaviorSubject(false);
+  isLoading$ = this.isLoading.asObservable()
   filterForm!: FormGroup;
 
   ngOnInit() {
@@ -40,16 +42,16 @@ export class Doctors implements OnInit {
   }
 
   loadDoctors() {
-    this.isLoading = true;
+    this.isLoading.next(true);
     this.doctorService.getAllDoctors().subscribe({
       next: (doctors) => {
         this.doctors = doctors;
         this.filteredDoctors = doctors;
-        this.isLoading = false;
+        this.isLoading.next(false);
       },
       error: (err) => {
         console.error('Failed to load doctors:', err);
-        this.isLoading = false;
+        this.isLoading.next(false);
       }
     });
   }

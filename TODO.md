@@ -1,14 +1,13 @@
-# Doctor Details Page Implementation TODO
+# Implement Doctor Profile Update Feature
 
-## Planned Steps:
-- [x] Step 1: Update DoctorService.ts to add getDoctorById method
-- [x] Step 2: Implement DoctorDetails.ts component logic
-- [x] Step 3: Update doctor-details.html with full UI
-- [x] Step 4: Add styling to doctor-details.css
-- [ ] Step 5: Test and complete
+## Steps:
+- [x] Step 1: Add `updateDoctor` method to `src/app/services/doctor-service.ts`
+- [x] Step 2: Update `src/app/components/pages/doctor/doctor-profile/doctor-profile.ts` (inject DoctorService, implement onSubmit)
+- [x] Step 3: Test the implementation (run app, update profile, verify API call and localStorage)
 
-## Completed
-All steps done. Test by running `ng serve`, go to /doctors, click a doctor.
-
-Step 5: Verified implementation complete.
+## Testing:
+- Ensure JSON-server is running: `json-server --watch db.json --port 3000`
+- Navigate to doctor profile, edit fields, submit.
+- Check network tab for PATCH request to /users/{id}
+- Verify db.json updated and form reflects changes.
 

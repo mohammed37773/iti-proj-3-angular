@@ -1,7 +1,9 @@
 :root{
-    --mcd: #317bc4;
     --mcn: #5c9fcf;
-    --mcl: #88b5d6;
+    /* --mcn: #5ccf6b; */
+    /* --mcn: #ff3a3a; */
+    --mcd: color-mix(in srgb, black 25%, var(--mcn) );
+    --mcl: color-mix(in srgb, white 25%, var(--mcn));;
     --background-animation: gradientMove 3s linear infinite;
 }
 

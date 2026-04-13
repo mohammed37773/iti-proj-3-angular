@@ -1,1 +1,60 @@
-<p>doctor-appointments works!</p>
+<div class="appointments-container">
+  <div class="header">
+    <h2 class="verdana">My Appointments</h2>
+    <a routerLink="/dashboard" class="back-btn">← Back to Dashboard</a>
+  </div>
+
+  @if (isLoading$ | async) {
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading appointments...</p>
+    </div>
+  } @else if (error) {
+    <div class="error">
+      <h3>{{ error }}</h3>
+      <a routerLink="/dashboard" class="back-btn">Go Back</a>
+    </div>
+  } @else if (doctorAppointments.length === 0) {
+    <div class="no-data">
+      <h3>No appointments</h3>
+      <p>Your appointments will appear here once scheduled.</p>
+    </div>
+  } @else {
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Patient</th>
+            <th>Time Slot</th>
+            <th>Status</th>
+            <th>Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (appt of doctorAppointments; track $index) {
+            <tr>
+              <td>{{ appt.date }}</td>
+              <td>{{ appt.patientName }}</td>
+              <td>{{ appt.timeSlot }}</td>
+              <td>
+                <span class="status-badge status-{{ appt.status | lowercase }}">{{ appt.status | titlecase }}</span>
+              </td>
+              <td>{{ appt.notes || '-' }}</td>
+              <!-- todo fix this -->
+              <!-- <td>
+                <select [value]="appt.status" (change)="updateStatus(appt.id!, $event.target!.value)">
+                  <option value="pending">Pending</option>
+                  <option value="confirmed">Confirmed</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </td> -->
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

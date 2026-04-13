@@ -25,7 +25,6 @@ export class DoctorDetails implements OnInit, OnDestroy {
   doctor: IDoctor | null = null;
   isLoading = new BehaviorSubject<boolean>(false);
   isLoading$ = this.isLoading.asObservable()
-  // .pipe(map(res => console.log("loading" + res)))
 
   error: string | null = null;
   availableSlots: ITimeSlot[] = [];
@@ -52,7 +51,6 @@ export class DoctorDetails implements OnInit, OnDestroy {
         this.availableSlots = doctor.availableSlots?.filter(slot => !slot.isBooked) || [];
         this.isLoading.next(false);
         console.log(this.isLoading);
-        this.changeDetect.detectChanges()
       },
       error: (err) => {
         console.error('Failed to load doctor:', err);

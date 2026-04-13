@@ -17,7 +17,7 @@
       "phone": "01011111111",
       "role": "doctor",
       "specialization": "Cardiology",
-      "experience": 10,
+      "experience": 11,
       "bio": "Experienced cardiologist with 10 years in heart care.",
       "availableSlots": [
         {
@@ -53,7 +53,8 @@
       ],
       "rating": 4.8,
       "reviewCount": 120,
-      "createdAt": "2026-01-15"
+      "createdAt": "2026-01-15",
+      "fullName": "Ahmed Hassan"
     },
     {
       "id": "3",
@@ -579,6 +580,33 @@
       "createdAt": "2026-04-12T15:50:55.192Z",
       "id": "JKF_2Jqjp74",
       "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:00 - 09:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T11:33:41.261Z",
+      "id": "0M51ZwOCu3g"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "Monday",
+      "timeSlot": "10:00 - 10:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T11:33:48.351Z",
+      "id": "8TGLuzSdsSk"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Tuesday",
+      "timeSlot": "14:00 - 14:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T11:56:55.736Z",
+      "id": "ixsUyqEzU18"
     }
   ],
   "prescriptions": [
