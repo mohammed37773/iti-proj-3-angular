@@ -46,6 +46,7 @@
   color: #dc3545;
 }
 
+
 .doctor-profile {
   background: white;
   border-radius: 16px;
@@ -90,6 +91,7 @@
 }
 
 .rating {
+  color: #ffc107;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
