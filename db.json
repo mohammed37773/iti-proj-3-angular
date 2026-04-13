@@ -11,7 +11,7 @@
     },
     {
       "id": "2",
-      "name": "Ahmed Hassaneee",
+      "name": "Ahmed Hassan",
       "email": "ahmed@doctor.com",
       "password": "doctor123",
       "phone": "01011111111",
@@ -570,6 +570,43 @@
       "status": "pending",
       "createdAt": "2026-04-11T10:43:42.179Z",
       "id": "n2GH_uQ4fDk"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:00 - 09:30",
+      "status": "completed",
+      "createdAt": "2026-04-12T15:50:55.192Z",
+      "id": "JKF_2Jqjp74",
+      "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:00 - 09:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T11:33:41.261Z",
+      "id": "0M51ZwOCu3g"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "3",
+      "date": "Monday",
+      "timeSlot": "10:00 - 10:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T11:33:48.351Z",
+      "id": "8TGLuzSdsSk"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Tuesday",
+      "timeSlot": "14:00 - 14:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T11:56:55.736Z",
+      "id": "ixsUyqEzU18"
     }
   ],
   "prescriptions": [
