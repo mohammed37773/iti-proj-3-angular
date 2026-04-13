@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { IAppointment } from '../models/iappointment';
 import { IUser } from '../models/iuser';
 import { MedicalRecord } from '../models/imedical-record';
+import { IPatient } from '../models/ipatient';
 
 @Injectable({
   providedIn: 'root',
@@ -77,10 +78,12 @@ updateProfile(id: string, profile: IUser) {
   }
 
   getAllPatients() {
-    return this.http.get<IUser[]>(environment.UserUrl + '?role=patient');
+    return this.http.get<IPatient[]>(environment.UserUrl + '?role=patient');
   }
 
-  
+  updatePatient(id: string, data: any) {
+    return this.http.patch(`${environment.UserUrl}/${id}`, data);
+  }
 
 getUsers() {
   return this.http.get<any[]>(`http://localhost:3000/users`);

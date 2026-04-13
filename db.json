@@ -97,7 +97,8 @@
       "password": "patient123",
       "phone": "01033333333",
       "role": "patient",
-      "createdAt": "2026-03-01"
+      "createdAt": "2026-03-01",
+      "deactivated": false
     },
     {
       "id": "5",
@@ -106,7 +107,8 @@
       "password": "patient123",
       "phone": "01044444444",
       "role": "patient",
-      "createdAt": "2026-03-10"
+      "createdAt": "2026-03-10",
+      "deactivated": false
     },
     {
       "id": "DZsmU7GHXkE",
@@ -607,6 +609,115 @@
       "status": "pending",
       "createdAt": "2026-04-13T11:56:55.736Z",
       "id": "ixsUyqEzU18"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Tuesday",
+      "timeSlot": "14:30 - 15:00",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:17:43.407Z",
+      "id": "HYOOe_24op0"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:00 - 09:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:19:17.979Z",
+      "id": "VjxcX4vcdcs"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:19:29.925Z",
+      "id": "4v5r92QH4Kc"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Tuesday",
+      "timeSlot": "14:00 - 14:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:19:36.886Z",
+      "id": "KdafeHuQe0k"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Tuesday",
+      "timeSlot": "14:30 - 15:00",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:20:06.210Z",
+      "id": "MZL88OJ-B7o"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:00 - 09:30",
+      "status": "completed",
+      "createdAt": "2026-04-13T14:21:33.332Z",
+      "id": "xwg6L0pM5XY",
+      "doctorName": "Ahmed Hassan"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:40:29.874Z",
+      "id": "UHuDcKFAZ88"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "3",
+      "date": "Monday",
+      "timeSlot": "10:00 - 10:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:44:07.197Z",
+      "id": "eT6tsJIV6Pc"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:00 - 09:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:47:36.169Z",
+      "id": "-SFkzArRzgI"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Tuesday",
+      "timeSlot": "14:00 - 14:30",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:48:57.281Z",
+      "id": "ZIQWFykxIY4"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Tuesday",
+      "timeSlot": "14:30 - 15:00",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:49:39.277Z",
+      "id": "4Hn_dIMxNpk"
+    },
+    {
+      "patientId": "1775674714129",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-13T14:49:45.321Z",
+      "id": "_hFeTCXWWNo"
     }
   ],
   "prescriptions": [

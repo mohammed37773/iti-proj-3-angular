@@ -6,13 +6,24 @@
   } @else {
     <div class="row">
       @for (patient of patients; track patient.id) {
-        <div class="card mb-3 col-4">
+        <div class="table-container mb-3 col-4">
           <div class="card-header">
             <h5 class="mb-1">{{ patient.name }}</h5>
             <p class="mb-1">{{ patient.email }}</p>
             <p class="mb-1">{{ patient.phone }}</p>
+            @if (patient.deactivated) {
+              <p><span class="badge bg-secondary">Inactive</span></p>
+              
+              <button class="btn btn-danger" (click)="activatePatient(patient.id)">
+                Activate
+              </button>
+            } @else {
+              <p><span class="badge bg-success">Active</span></p>
+              <button class="btn btn-danger" (click)="deactivatePatient(patient.id)">
+                Deactivate
+              </button>
+            }
           </div>
-          <!-- <button class="btn btn-danger" (click)="deactivatePatient(patient.id)">Deactivate</button> -->
         </div>
       }
     </div>

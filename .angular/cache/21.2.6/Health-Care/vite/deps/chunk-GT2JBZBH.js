@@ -1,23 +1,17 @@
 import {
-<<<<<<<< HEAD:.angular/cache/21.2.6/Health-Care/vite/deps/chunk-DLZRCV7J.js
-========
   withHttpTransferCache
-} from "./chunk-6TXK3TYE.js";
+} from "./chunk-VCVBVI4S.js";
 import {
->>>>>>>> 931e684f0e670e74cdd5e95e7daac3dc7c033ef4:.angular/cache/21.2.6/Health-Care/vite/deps/chunk-E3FLYNBN.js
   CommonModule,
   PLATFORM_BROWSER_ID
-} from "./chunk-WBTYHLUS.js";
-import {
-  withHttpTransferCache
-} from "./chunk-554CL77I.js";
+} from "./chunk-5XDC2UXL.js";
 import {
   DomAdapter,
   XhrFactory,
   getDOM,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-EFTJ7KLQ.js";
+} from "./chunk-MS5PZOFA.js";
 import {
   APP_ID,
   ApplicationModule,
@@ -78,10 +72,11 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-SS4EV26Y.js";
+} from "./chunk-TOYWKSXU.js";
 import {
+  __async,
   __spreadValues
-} from "./chunk-U7EDC2PH.js";
+} from "./chunk-WDMUDEB6.js";
 
 // node_modules/@angular/platform-browser/fesm2022/_dom_renderer-chunk.mjs
 var EventManagerPlugin = class {
@@ -1017,20 +1012,24 @@ var KeyEventsPlugin = class _KeyEventsPlugin extends EventManagerPlugin {
     }]
   }], null);
 })();
-async function bootstrapApplication(rootComponent, options, context) {
-  const config = __spreadValues({
-    rootComponent
-  }, createProvidersConfig(options, context));
-  if (false) {
-    await resolveJitResources();
-  }
-  return internalCreateApplication(config);
+function bootstrapApplication(rootComponent, options, context) {
+  return __async(this, null, function* () {
+    const config = __spreadValues({
+      rootComponent
+    }, createProvidersConfig(options, context));
+    if (false) {
+      yield resolveJitResources();
+    }
+    return internalCreateApplication(config);
+  });
 }
-async function createApplication(options, context) {
-  if (false) {
-    await resolveJitResources();
-  }
-  return internalCreateApplication(createProvidersConfig(options, context));
+function createApplication(options, context) {
+  return __async(this, null, function* () {
+    if (false) {
+      yield resolveJitResources();
+    }
+    return internalCreateApplication(createProvidersConfig(options, context));
+  });
 }
 function createProvidersConfig(options, context) {
   return {
@@ -1752,8 +1751,4 @@ export {
   provideClientHydration,
   VERSION
 };
-<<<<<<<< HEAD:.angular/cache/21.2.6/Health-Care/vite/deps/chunk-DLZRCV7J.js
-//# sourceMappingURL=chunk-DLZRCV7J.js.map
-========
-//# sourceMappingURL=chunk-E3FLYNBN.js.map
->>>>>>>> 931e684f0e670e74cdd5e95e7daac3dc7c033ef4:.angular/cache/21.2.6/Health-Care/vite/deps/chunk-E3FLYNBN.js
+//# sourceMappingURL=chunk-GT2JBZBH.js.map

@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { IUser } from '../../../../models/iuser';
 import { PatientService } from '../../../../services/patient';
+import { IPatient } from '../../../../models/ipatient';
 
 @Component({
   selector: 'app-admin-patients',
@@ -9,7 +10,7 @@ import { PatientService } from '../../../../services/patient';
   styleUrl: './admin-patients.css',
 })
 export class AdminPatients implements OnInit {
-  patients: IUser[] = [];
+  patients: IPatient[] = [];
   isLoading = true;
 
   constructor(private patientService: PatientService, private cdr: ChangeDetectorRef) {}
@@ -34,7 +35,31 @@ export class AdminPatients implements OnInit {
 
   deactivatePatient(id: string) {
     if (confirm('Are you sure you want to deactivate this patient?')) {
-      this.patientService.(id).subscribe();
+      this.patientService.updatePatient(id, { deactivated: true }).subscribe({
+        next: () => {
+          alert('Patient deactivated successfully.');
+          this.loadPatients();
+        },
+        error: (err) => {
+          console.error('Error deactivating patient:', err);
+          alert('Failed to deactivate patient. Please try again later.');
+        },
+      })
+    }
+  }
+
+    activatePatient(id: string) {
+    if (confirm('Are you sure you want to activate this patient?')) {
+      this.patientService.updatePatient(id, { deactivated: false }).subscribe({
+        next: () => {
+          alert('Patient activated successfully.');
+          this.loadPatients();
+        },
+        error: (err) => {
+          console.error('Error activating patient:', err);
+          alert('Failed to activate patient. Please try again later.');
+        },
+      })
     }
   }
 }
