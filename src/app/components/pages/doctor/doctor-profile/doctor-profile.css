@@ -9,6 +9,15 @@ form h1 {
   text-align: center;
 }
 
+.doctor-avatar {
+  width: 120px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--mcd);
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

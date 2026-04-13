@@ -43,4 +43,8 @@ export class DoctorService {
   updateDoctorPartial(id: string, doctor: any) {
     return this.http.patch(`${environment.UserUrl}/${id}`, doctor);
   }
+
+  updateDoctor(id: string, doctorData: Partial<IDoctor>) {
+    return this.http.patch<IDoctor>(`${environment.UserUrl}/${id}`, doctorData);
+  }
 }

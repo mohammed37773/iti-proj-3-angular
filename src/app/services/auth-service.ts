@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   http = inject(HttpClient);
   router = inject(Router)
-  currentUser = new BehaviorSubject<IUser | null>(null);
+  currentUser = new BehaviorSubject<IUser | null>(this.getCurrentUserData());
   role = this.currentUser.asObservable()
           .pipe(map(user => user?.role));
 

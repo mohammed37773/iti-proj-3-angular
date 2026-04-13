@@ -1,5 +1,5 @@
 import { IUser } from './../../../../models/iuser';
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { PatientService } from '../../../../services/patient';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PatientProfile implements OnInit {
 
   private patientService = inject(PatientService);
+    private cdr:ChangeDetectorRef = inject(ChangeDetectorRef);
 
   UserProfile: IUser | null = null;
   loading = true;
@@ -50,7 +51,9 @@ getPatientDetails(id: string) {
         console.log('API:', res);
 
         this.UserProfile = res as IUser;
-        this.loading = false; // 👈 مهم جدًا
+        this.loading = false;
+        this.cdr.detectChanges();
+         // 👈 مهم جدًا
       },
       error: (err) => {
         console.log(err);
