@@ -1,1 +1,24 @@
-<p>admin-doctors works!</p>
+<div class="container mt-4">
+  @if (isLoading) {
+    <p>Loading doctors...</p>
+  } @else if (doctors.length == 0) {
+    <p>No Doctors To Show.</p>
+  } @else {
+    <div class="row">
+      @for (doctor of doctors; track doctor.id) {
+        <div class="card mb-3 col-4">
+          <div class="card-header">
+            <h5 class="mb-1">{{ doctor.name }}</h5>
+            <p class="mb-1">{{ doctor.specialization }}</p>
+            <p class="mb-1">{{ doctor.email }}</p>
+            <p class="mb-1">{{ doctor.phone }}</p>
+            <p class="mb-1">{{ doctor.rating }}</p>
+            <p class="mb-1">{{ doctor.reviewCount }}</p>
+          </div>
+          <button class="btn btn-primary" [routerLink]="['/doctors/edit', doctor.id]">Edit</button>
+          <button class="btn btn-danger" (click)="deleteDoctor(doctor.id)">Delete</button>
+        </div>
+      }
+    </div>
+  }
+</div>

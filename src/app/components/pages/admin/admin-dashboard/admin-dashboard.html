@@ -1,1 +1,20 @@
-<p>admin-dashboard works!</p>
+<div class="container mt-4">
+  <h1>Admin Dashboard</h1>
+
+  @if (data$ | async; as data) {
+
+    <h2>Total Doctors:</h2>
+    <p>{{ data.doctors }}</p>
+
+    <h2>Total Patients:</h2>
+    <p>{{ data.patients }}</p>
+
+    <h2>Total Appointments:</h2>
+    <p>{{ data.appointments }}</p>
+
+  }
+   @else {
+    <p>Loading data...</p>
+  }
+
+</div>
