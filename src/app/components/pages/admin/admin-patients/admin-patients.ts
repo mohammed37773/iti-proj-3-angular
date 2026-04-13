@@ -32,18 +32,9 @@ export class AdminPatients implements OnInit {
     });
   }
 
-  // deactivatePatient(id: string) {
-  //   if (confirm('Are you sure you want to deactivate this patient?')) {
-  //     this.patientService.(id).subscribe({
-  //       next: () => {
-  //         this.loadPatients();
-  //         alert('Patient deactivated successfully.');
-  //       },
-  //       error: (err) => {
-  //         console.error('Error deactivating patient:', err);
-  //         alert('Failed to deactivate patient. Please try again later.');
-  //       },
-  //     });
-  //   }
-  // }
+  deactivatePatient(id: string) {
+    if (confirm('Are you sure you want to deactivate this patient?')) {
+      this.patientService.(id).subscribe();
+    }
+  }
 }
