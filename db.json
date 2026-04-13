@@ -125,6 +125,15 @@
       "phone": "01234567890",
       "role": "doctor",
       "createdAt": "2026-04-08T05:52:44.666Z"
+    },
+    {
+      "id": "yVoyFvC7rkI",
+      "name": "nour",
+      "email": "ahmed@com",
+      "password": "123456n",
+      "phone": "+201205422499",
+      "role": "doctor",
+      "createdAt": "2026-04-13T12:20:43.806Z"
     }
   ],
   "appointments": [
@@ -607,6 +616,25 @@
       "status": "pending",
       "createdAt": "2026-04-13T11:56:55.736Z",
       "id": "ixsUyqEzU18"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:30 - 10:00",
+      "status": "pending",
+      "createdAt": "2026-04-13T12:08:19.325Z",
+      "id": "4VKHSa9r-3U"
+    },
+    {
+      "patientId": "4",
+      "doctorId": "2",
+      "date": "Sunday",
+      "timeSlot": "09:00 - 09:30",
+      "status": "completed",
+      "createdAt": "2026-04-13T12:18:04.443Z",
+      "id": "IRqcv-ePxvU",
+      "doctorName": "Ahmed Hassan"
     }
   ],
   "prescriptions": [
