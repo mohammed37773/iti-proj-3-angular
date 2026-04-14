@@ -1,20 +1,29 @@
 <div class="container mt-4">
-  <h1>Admin Dashboard</h1>
+  <h1 class="verdana">Admin Dashboard</h1>
 
   @if (data$ | async; as data) {
 
-    <h2>Total Doctors:</h2>
-    <p>{{ data.doctors }}</p>
+<div class="dashboard-container">
+  <section class="stats-grid">
+    <div class="stat-card blue">
+      <p class="colorize">Total Doctors:</p>
+      <h3 class="colorize">{{ data.doctors }}</h3>
+    </div>
 
-    <h2>Total Patients:</h2>
-    <p>{{ data.patients }}</p>
+    <div class="stat-card blue">
+      <p class="colorize">Total Patients:</p>
+      <h3 class="colorize">{{ data.patients }}</h3>
+    </div>
 
-    <h2>Total Appointments:</h2>
-    <p>{{ data.appointments }}</p>
+    <div class="stat-card blue">
+      <p class="colorize">Total Appointments:</p>
+      <h3 class="colorize">{{ data.appointments }}</h3>
+    </div>
 
+  </section>
+
+</div>
   }
    @else {
     <p>Loading data...</p>
   }
-
-</div>

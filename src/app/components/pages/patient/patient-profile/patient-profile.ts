@@ -14,9 +14,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './patient-profile.css',
 })
 export class PatientProfile implements OnInit {
-
   private patientService = inject(PatientService);
-    private cdr:ChangeDetectorRef = inject(ChangeDetectorRef);
+  private cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   UserProfile: IUser | null = null;
   loading = true;
@@ -25,71 +24,61 @@ export class PatientProfile implements OnInit {
 
   editModel: IUser = {} as IUser;
 
-  
- get patientId(): string {
-  const user = localStorage.getItem('user');
-  return user ? JSON.parse(user).id : '';
-}
-
-ngOnInit(): void {
-  const id = this.patientId;
-
-  console.log('ID:', id);
-
-  if (id) {
-    this.getPatientDetails(id);
+  get patientId(): string {
+    const user = localStorage.getItem('currentUser');
+    return user ? JSON.parse(user).id : '';
   }
-}
 
-  // 🚀 GET PROFILE
-getPatientDetails(id: string) {
-  this.loading = true;
+  ngOnInit(): void {
+    const id = this.patientId;
 
-  this.patientService.getProfile(id)
-    .subscribe({
+    console.log('ID:', id);
+
+    if (id) {
+      this.getPatientDetails(id);
+    }
+  }
+
+  getPatientDetails(id: string) {
+    this.loading = true;
+
+    this.patientService.getProfile(id).subscribe({
       next: (res) => {
         console.log('API:', res);
 
         this.UserProfile = res as IUser;
         this.loading = false;
         this.cdr.detectChanges();
-         // 👈 مهم جدًا
       },
       error: (err) => {
         console.log(err);
-        this.loading = false; // 👈 لازم هنا كمان
-      }
+        this.loading = false;
+        this.cdr.detectChanges();
+      },
     });
-}
+  }
 
-  // ✏️ OPEN EDIT FORM
   openEdit() {
     this.isEditMode = true;
     this.editModel = { ...this.UserProfile! };
   }
 
-  // ❌ CANCEL EDIT
   cancelEdit() {
     this.isEditMode = false;
   }
 
-  // 💾 SAVE UPDATE
   saveUpdate() {
- 
+    if (!this.patientId) {
+      console.log('No ID found');
+      return;
+    }
 
-  if (!this.patientId) {
-    console.log('No ID found');
-    return;
-  }
-
-  this.patientService.updateProfile(this.patientId, this.editModel)
-    .subscribe({
+    this.patientService.updateProfile(this.patientId, this.editModel).subscribe({
       next: (res) => {
         this.UserProfile = res;
         this.isEditMode = false;
       },
-      error: (err) => console.log(err)
+      error: (err) => console.log(err),
     });
-}
   }
-
+}
