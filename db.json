@@ -108,7 +108,7 @@
       "phone": "01044444444",
       "role": "patient",
       "createdAt": "2026-03-10",
-      "deactivated": false
+      "deactivated": true
     },
     {
       "id": "DZsmU7GHXkE",
