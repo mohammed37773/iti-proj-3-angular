@@ -1,3 +1,7 @@
+h1 {
+  color: white;
+}
+
 .dashboard-container {
   max-width: 90vw;
   margin: 0 auto;
@@ -71,12 +75,10 @@
   font-size: 3rem;
   font-weight: 800;
   margin: 0 0 0.5rem 0;
-  color: #1a1a1a;
 }
 
 .stat-card p {
   font-size: 1rem;
-  color: #666;
   margin: 0;
   font-weight: 500;
   text-transform: uppercase;
