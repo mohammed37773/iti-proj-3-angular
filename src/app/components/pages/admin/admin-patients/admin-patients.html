@@ -4,17 +4,20 @@
   } @else if (patients.length == 0) {
     <p>No Patients To Show.</p>
   } @else {
-    <div class="row">
+        <div class="doctors-grid">
+
       @for (patient of patients; track patient.id) {
-        <div class="card mb-3 col-4">
-          <div class="card-header">
-            <h5 class="mb-1">{{ patient.name }}</h5>
-            <p class="mb-1">{{ patient.email }}</p>
-            <p class="mb-1">{{ patient.phone }}</p>
+        <div class="doctor-card" >
+          <div class="d-flex flex-row align-items-center">
+            <div class="m-2">
+                <h3 class="colorize">{{ patient.name }}</h3>
+                <p class="specialization">{{ patient.email }}</p>
+                <p class="specialization">{{ patient.phone }}</p>
+            </div> 
           </div>
-          <!-- <button class="btn btn-danger" (click)="deactivatePatient(patient.id)">Deactivate</button> -->
+
         </div>
       }
     </div>
-  }
-</div>
+    }
+  </div>

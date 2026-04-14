@@ -3,18 +3,27 @@
 
   @if (data$ | async; as data) {
 
-    <h2>Total Doctors:</h2>
-    <p>{{ data.doctors }}</p>
+<div class="dashboard-container">
+  <section class="stats-grid">
+    <div class="stat-card blue">
+      <p>Total Doctors:</p>
+      <h3>{{ data.doctors }}</h3>
+    </div>
 
-    <h2>Total Patients:</h2>
-    <p>{{ data.patients }}</p>
+    <div class="stat-card blue">
+      <p>Total Patients:</p>
+      <h3>{{ data.patients }}</h3>
+    </div>
 
-    <h2>Total Appointments:</h2>
-    <p>{{ data.appointments }}</p>
+    <div class="stat-card blue">
+      <p>Total Appointments:</p>
+      <h3>{{ data.appointments }}</h3>
+    </div>
 
+  </section>
+
+</div>
   }
    @else {
     <p>Loading data...</p>
   }
-
-</div>
